@@ -1,0 +1,49 @@
+:root {
+  --accent: var(--toolbarbutton-icon-fill);
+  --bg: var(--lwt-accent-color);
+  --border: var(--toolbar-field-background-color);
+  --rounding: 0px;
+  --margin: 0.8rem;
+  --width: 2px;
+
+  /*
+   * ─[ overwrites ]───────────────────────────────────────────────────────
+  */
+  --link-color: var(--accent) !important;
+  --urlbarView-highlight-background: var(--accent) !important;
+  --border-width: var(--width) !important;
+  --border-radius-small: var(--rounding) !important;
+  --border-radius-medium: var(--rounding) !important;
+  --toolbarbutton-border-radius: var(--rounding) !important;
+
+  #root[data-toolbar-color-scheme="dark"] [data-color="yellow"] {
+    --color: #f6c177 !important;
+  }
+  #root[data-toolbar-color-scheme="dark"] [data-color="purple"] {
+    --color: #c4a7e7 !important;
+  }
+  #root[data-toolbar-color-scheme="light"] [data-color="yellow"] {
+    --color: #ea9d34 !important;
+  }
+  #root[data-toolbar-color-scheme="light"] [data-color="purple"] {
+    --color: #907aa9 !important;
+  }
+  [data-color="blue"] {
+    --color: #9ccfd8 !important;
+  }
+  [data-color="turquoise"] {
+    --color: #9ccfd8 !important;
+  }
+  [data-color="green"] {
+    --color: #3e8fb0 !important;
+  }
+  [data-color="orange"] {
+    --color: #f6c177 !important;
+  }
+  [data-color="red"] {
+    --color: #eb6f92 !important;
+  }
+  [data-color="pink"] {
+    --color: #ea9a97 !important;
+  }
+}

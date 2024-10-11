@@ -1,0 +1,10 @@
+@import url("variables.css");
+@import url("content/sidebery.css");
+@-moz-document url-prefix(about:) {
+  * {
+    font-family: "SF Mono", monospace !important;
+  }
+  body {
+    background: var(--bg)
+  }
+}

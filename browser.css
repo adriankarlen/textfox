@@ -1,0 +1,20 @@
+#appcontent {
+  margin: 8px;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--rounding);
+  padding: 8px;
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent) !important;
+  }
+}
+#tabbrowser-tabbox::before {
+  content: "main";
+  background-color: var(--lwt-accent-color);
+  position: absolute;
+  margin: -20px 4px;
+  padding: 0 4px;
+  z-index: 9;
+  font-size: 1.15em;
+}
+

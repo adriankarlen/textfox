@@ -1,0 +1,30 @@
+#urlbar-background {
+  background-color: transparent !important;
+  border: unset !important;
+  box-shadow: unset !important;
+  /* &::before { */
+  /*   content: "results"; */
+  /*   background-color: var(--lwt-accent-color); */
+  /*   color: var(--accent); */
+  /*   position: absolute; */
+  /*   margin: 5.1rem 12px; */
+  /*   padding: 0 4px; */
+  /*   z-index: 9; */
+  /*   font-size: 1.15em; */
+  /*   left: 0 */
+  /* } */
+}
+.urlbarView {
+  text-align: start;
+  margin-top: 4px;
+  background-color: var(--lwt-accent-color);
+  border: var(--border-width) solid var(--accent) !important;
+}
+.urlbarView-body-inner {
+  #urlbar[open] > .urlbarView > .urlbarView-body-outer > & {
+    border-top: unset !important;
+  }
+}
+.urlbarView:not([noresults]) > .search-one-offs:not([hidden]) {
+  border-top: var(--border-width) solid var(--accent) !important;
+}

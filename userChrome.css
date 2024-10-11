@@ -1,0 +1,15 @@
+@import url("variables.css");
+@import url("icons.css");
+@import url("navbar.css");
+@import url("urlbar.css");
+@import url("sidebar.css");
+@import url("browser.css");
+
+* {
+  font-family: "SF Mono", monospace !important;
+  font-size: 14px;
+}
+
+body {
+  background-color: var(--lwt-accent-color);
+}

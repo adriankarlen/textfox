@@ -1,0 +1,27 @@
+#sidebar-box {
+  margin: 8px;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--rounding);
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent) !important;
+  }
+  &::before {
+    content: "tabs";
+    background-color: var(--lwt-accent-color);
+    color: var(--lwt-text-color);
+    position: absolute;
+    margin: -12px 12px;
+    padding: 0 4px;
+    z-index: 9;
+    font-size: 1.15em;
+  }
+}
+
+#sidebar-header {
+  display: none;
+}
+
+#sidebar-splitter {
+  display: none;
+}

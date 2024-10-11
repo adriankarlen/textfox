@@ -1,0 +1,80 @@
+/* fix urlbar being too high in ff 128 */
+* {
+  --urlbar-toolbar-height: 32px !important;
+  --urlbar-container-height: 32px !important;
+}
+
+#TabsToolbar {
+  visibility: collapse !important;
+}
+
+/* Keeps the .titlebar-spacer[type="pre-tabs"] and [type="post-tabs"] consistent in all window sizes */
+:root:not([sizemode="normal"]) .titlebar-spacer[type="pre-tabs"] {
+  display: block !important;
+}
+@media (max-width: 500px) {
+  .titlebar-spacer[type="post-tabs"] {
+    display: block !important;
+  }
+}
+
+/* Deactivating close, minimize and maximize buttons */
+.tab-close-button,
+#TabsToolbar .toolbarbutton-1,
+.titlebar-buttonbox-container {
+  display: none !important;
+}
+
+/* hide stuff */
+#identity-box,
+#back-button,
+#forward-button,
+#userContext-icons,
+#translations-button-icon,
+#tracking-protection-icon-container,
+#star-button-box,
+.urlbar-page-action {
+  display: none;
+}
+
+#nav-bar {
+  background-color: var(--lwt-accent-color) !important;
+  margin: 8px;
+  padding: 4px !important;
+  border-top: var(--border-width) !important;
+  border-style: solid !important;
+  border-width: var(--border-width);
+  border-color: var(--border) !important;
+  border-radius: var(--rounding);
+  &:hover,
+  &:focus {
+    border-color: var(--accent) !important;
+  }
+}
+
+#navigator-toolbox {
+  border-bottom: unset !important;
+  background-color: var(--lwt-accent-color);
+  &::before {
+    content: "navbar";
+    background-color: var(--lwt-accent-color);
+    position: absolute;
+    margin: 0 22px;
+    padding: 0 2px;
+    z-index: 9;
+    font-size: 1.15em;
+  }
+  &:hover::before {
+    color: var(--accent);
+  }
+}
+
+.urlbar-input-container {
+  border: none !important;
+  background: var(--lwt-accent-color);
+}
+
+#urlbar {
+  text-align: center;
+}
+
