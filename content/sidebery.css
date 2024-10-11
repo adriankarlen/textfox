@@ -37,7 +37,6 @@ Styles for Sidebery extension
     --status-notice: var(--s-toolbar-fg) !important;
   }
 
-
   /*
    * ─[ pinned tabs ]──────────────────────────────────────────────────────
   */
@@ -99,17 +98,28 @@ Styles for Sidebery extension
   .PinnedTabsBar {
     margin-bottom: 0px !important;
   }
-  
+
   /*
    * ─[ general tab stuff ]────────────────────────────────────────────────
   */
   .Tab[data-active="true"] .body {
     box-shadow: none !important;
-    background-color: color-mix(in hsl, currentColor 8%, var(--toolbar-bg)) !important;
+    background-color: color-mix(
+      in hsl,
+      currentColor 8%,
+      var(--toolbar-bg)
+    ) !important;
+      
+    & .title {
+      color: var(--s-popup-fg) !important;
+    }
   }
 
   .Tab .body {
     text-transform: lowercase;
+    & .title {
+      color: color-mix(in hsl, var(--s-popup-fg) 50%, transparent) !important;
+    }
   }
 
   /*
