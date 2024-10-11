@@ -2,6 +2,10 @@
 
 _a port of spotify tui to firefox_
 
+> [!NOTE]
+> This was written in a couple of hours and only tested using rose-pine moon
+> theme, so it might not work as intended for every theme, PR's are welcome!
+
 ## preview
 
 ![image](https://github.com/adriankarlen/textfox/blob/main/misc/preview.png)
