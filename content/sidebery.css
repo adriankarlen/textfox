@@ -109,7 +109,7 @@ Styles for Sidebery extension
       currentColor 8%,
       var(--toolbar-bg)
     ) !important;
-      
+
     & .title {
       color: var(--s-popup-fg) !important;
     }
