@@ -3,6 +3,7 @@
   border: var(--border-width) solid var(--border);
   border-radius: var(--rounding);
   padding: 8px;
+  transition: border-color var(--border-transition);
   &:hover {
     color: var(--accent);
     border-color: var(--accent) !important;
