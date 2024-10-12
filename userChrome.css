@@ -10,6 +10,12 @@
   font-size: 14px;
 }
 
+/* changes the color of the selected item in url dropdown */
+#urlbar-results>*[selected=""] {
+    background-color: #a07f7e !important;
+    }
+}
+
 body {
   background-color: var(--lwt-accent-color);
 }
