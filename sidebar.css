@@ -2,6 +2,7 @@
   margin: 8px;
   border: var(--border-width) solid var(--border);
   border-radius: var(--rounding);
+  transition: border-color var(--border-transition);
   &:hover {
     color: var(--accent);
     border-color: var(--accent) !important;
@@ -13,7 +14,7 @@
     position: absolute;
     margin: -12px 12px;
     padding: 0 4px;
-    z-index: 9;
+    z-index: 2;
     font-size: 1.15em;
   }
 }
