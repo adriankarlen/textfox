@@ -11,7 +11,7 @@
    * ─[ overwrites ]───────────────────────────────────────────────────────
   */
   --link-color: var(--accent) !important;
-  --urlbarView-highlight-background: var(--accent) !important;
+  --urlbarView-highlight-background: var(--toolbar-field-background-color) !important;
   --border-width: var(--width) !important;
   --border-radius-small: var(--rounding) !important;
   --border-radius-medium: var(--rounding) !important;
