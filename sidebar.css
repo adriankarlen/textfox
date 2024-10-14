@@ -4,7 +4,6 @@
   border-radius: var(--rounding);
   transition: border-color var(--border-transition);
   &:hover {
-    color: var(--accent);
     border-color: var(--accent) !important;
   }
   &::before {
@@ -16,6 +15,9 @@
     padding: 0 4px;
     z-index: 2;
     font-size: 1.15em;
+  }
+  &:hover::before {
+    color: var(--accent);
   }
 }
 
