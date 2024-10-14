@@ -38,7 +38,6 @@
 }
 
 #nav-bar {
-  background-color: transparent !important;
   border-top: var(--border-width) !important;
 }
 
@@ -51,7 +50,6 @@
   border-color: var(--border) !important;
   border-radius: var(--rounding);
   transition: border-color var(--border-transition) !important;
-  background-color: transparent !important;
   &::before {
     content: "navbar";
     background-color: var(--bg);
@@ -82,4 +80,10 @@
   --tab-min-height: fit-content !important;
   min-height: fit-content !important;
   padding-top: 3px !important;
+}
+
+.browser-toolbar {
+  &:not(.titlebar-color) {
+  background-color: transparent !important;
+  }
 }
