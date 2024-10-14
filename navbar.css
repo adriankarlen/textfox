@@ -38,43 +38,49 @@
 }
 
 #nav-bar {
-  background-color: transparent !important;
+  border-top: var(--border-width) !important;
+}
+
+#navigator-toolbox {
   margin: 8px;
   padding: 4px !important;
-  border-top: var(--border-width) !important;
+  border-bottom: var(--border-width)!important;
   border-style: solid !important;
   border-width: var(--border-width);
   border-color: var(--border) !important;
   border-radius: var(--rounding);
-  transition: border-color var(--border-transition);
-  &:hover,
-  &:focus {
-    border-color: var(--accent) !important;
-  }
-}
-
-#navigator-toolbox {
-  border-bottom: unset !important;
-  background-color: transparent !important;
+  transition: border-color var(--border-transition) !important;
   &::before {
     content: "navbar";
     background-color: var(--bg);
     position: absolute;
-    margin: 0 22px;
+    margin: -16px 8px;
     padding: 0 2px;
     z-index: 2;
     font-size: 1.15em;
+  }
+  &:hover,
+  &:focus {
+    border-color: var(--accent) !important;
   }
   &:hover::before {
     color: var(--accent);
   }
 }
 
-.urlbar-input-container {
-  border: none !important;
+:root[tabsintitlebar] #toolbar-menubar[autohide="true"] {
+  --tab-min-height: fit-content !important;
+  min-height: fit-content !important;
+  padding-top: 3px !important;
 }
 
-#urlbar {
-  text-align: center;
+#PlacesToolbarItems {
+  display: flex;
+  justify-content: center;
 }
 
+.browser-toolbar {
+  &:not(.titlebar-color) {
+  background-color: transparent !important;
+  }
+}
