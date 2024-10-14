@@ -11,7 +11,7 @@
 }
 #tabbrowser-tabbox::before {
   content: "main";
-  background-color: var(--lwt-accent-color);
+  background-color: var(--bg);
   position: absolute;
   margin: -20px 4px;
   padding: 0 4px;
