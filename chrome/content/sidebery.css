@@ -14,7 +14,7 @@ Styles for Sidebery extension
   #root.root {
     --general-border-radius: var(--rounding) !important;
     --general-margin: 8px !important;
-    --tabs-font: 1rem "SF Mono" !important;
+    --tabs-font: var(--font-size) var(--font-family) !important;
 
     --button-size: 35px;
     --pin-favicon-size: 30px;
