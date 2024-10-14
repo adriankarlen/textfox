@@ -38,7 +38,7 @@
 }
 
 #nav-bar {
-  background-color: var(--lwt-accent-color) !important;
+  background-color: transparent !important;
   margin: 8px;
   padding: 4px !important;
   border-top: var(--border-width) !important;
@@ -55,14 +55,14 @@
 
 #navigator-toolbox {
   border-bottom: unset !important;
-  background-color: var(--lwt-accent-color);
+  background-color: transparent !important;
   &::before {
     content: "navbar";
-    background-color: var(--lwt-accent-color);
+    background-color: var(--bg);
     position: absolute;
     margin: 0 22px;
     padding: 0 2px;
-    z-index: 9;
+    z-index: 2;
     font-size: 1.15em;
   }
   &:hover::before {
@@ -72,7 +72,6 @@
 
 .urlbar-input-container {
   border: none !important;
-  background: var(--lwt-accent-color);
 }
 
 #urlbar {

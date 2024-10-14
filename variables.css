@@ -1,6 +1,6 @@
 :root {
   --accent: var(--toolbarbutton-icon-fill);
-  --bg: var(--lwt-accent-color);
+  --bg: var(--lwt-accent-color, -moz-dialog);
   --border: var(--toolbar-field-background-color);
   --border-transition: .2s ease;
   --rounding: 0px;
@@ -12,6 +12,7 @@
   */
   --link-color: var(--accent) !important;
   --urlbarView-highlight-background: var(--toolbar-field-background-color) !important;
+  --toolbox-non-lwt-bgcolor: var(--bg) !important;
   --border-width: var(--width) !important;
   --border-radius-small: var(--rounding) !important;
   --border-radius-medium: var(--rounding) !important;
