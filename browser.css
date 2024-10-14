@@ -19,3 +19,14 @@
   font-size: 1.15em;
 }
 
+:root[inFullscreen="true"] {
+  #appcontent {
+    margin: 0;
+    border: none;
+    padding: 0;
+    transition: none;
+  }
+  #tabbrowser-tabbox::before {
+    display: none;
+  }
+}
