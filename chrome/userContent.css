@@ -2,7 +2,7 @@
 @import url("content/sidebery.css");
 @-moz-document url-prefix(about:) {
   * {
-    font-family: "SF Mono", monospace !important;
+    font-family: var(--font-family) !important;
   }
   body {
     background: var(--bg)

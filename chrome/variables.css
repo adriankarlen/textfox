@@ -1,4 +1,6 @@
 :root {
+  --font-family: "SF Mono", Consolas, monospace;
+  --font-size: 14px;
   --accent: var(--toolbarbutton-icon-fill);
   --bg: var(--lwt-accent-color, -moz-dialog);
   --border: var(--toolbar-field-background-color);

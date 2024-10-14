@@ -6,8 +6,8 @@
 @import url("browser.css");
 
 * {
-  font-family: "SF Mono", monospace !important;
-  font-size: 14px;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
 }
 
 body {
