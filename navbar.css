@@ -82,6 +82,11 @@
   padding-top: 3px !important;
 }
 
+#PlacesToolbarItems {
+  display: flex;
+  justify-content: center;
+}
+
 .browser-toolbar {
   &:not(.titlebar-color) {
   background-color: transparent !important;
