@@ -68,14 +68,6 @@
   }
 }
 
-.urlbar-input-container {
-  border: none !important;
-}
-
-#urlbar {
-  text-align: center;
-}
-
 :root[tabsintitlebar] #toolbar-menubar[autohide="true"] {
   --tab-min-height: fit-content !important;
   min-height: fit-content !important;

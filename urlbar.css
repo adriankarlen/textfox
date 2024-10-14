@@ -1,3 +1,7 @@
+#urlbar {
+  text-align: center;
+}
+
 #urlbar-background {
   background-color: transparent !important;
   border: unset !important;
