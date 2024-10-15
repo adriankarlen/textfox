@@ -166,7 +166,7 @@ Styles for Sidebery extension
 
   /* accent colored selection */
   ::selection {
-    background: var(--s-toolbar-fg) !important;
+    background: color-mix(in hsl, var(--s-toolbar-fg) 20%, transparent) !important;
   }
 
   /* notification */
