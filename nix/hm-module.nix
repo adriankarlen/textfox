@@ -1,10 +1,10 @@
 inputs: {config, lib, pkgs, ...}:
 let 
-  cfg = config.firefox.textfox;
+  cfg = config.textfox;
   inherit (pkgs.stdenv.hostPlatform) system;
   package = inputs.self.packages.${system}.default;
 in {
-  options.firefox.textfox = {
+  options.textfox = {
     enable = lib.mkEnableOption "Enable textfox";
     profile = lib.mkOption {
       type = lib.types.str;
