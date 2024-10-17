@@ -4,6 +4,11 @@ let
   inherit (pkgs.stdenv.hostPlatform) system;
   package = inputs.self.packages.${system}.default;
 in {
+
+  imports = [
+    inputs.nur.hmModules.nur
+  ];
+
   options.textfox = {
     enable = lib.mkEnableOption "Enable textfox";
     profile = lib.mkOption {
@@ -17,6 +22,7 @@ in {
       enable = true;
       profiles."${cfg.profile}" = {
           extraConfig = builtins.readFile "${package}/user.js";
+          extensions = [ config.nur.repos.rycee.firefox-addons.sidebery ];
         };
       };
 

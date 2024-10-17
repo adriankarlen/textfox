@@ -3,9 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nur.url = github:nix-community/NUR;
   };
 
-  outputs = { self, nixpkgs } @ inputs: let
+  outputs = { self, nixpkgs, nur } @ inputs: let
     forAllSystems = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux" "x86_64-darwin"];
     pkgsForEach = nixpkgs.legacyPackages;
   in {
