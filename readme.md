@@ -29,6 +29,94 @@ _a port of spotify tui to firefox_
 > apply the settings in `about:config` manually. These are needed for the css to
 > work.
 
+### Nix
+This repo includes a Nix flake that exposes a home-manager module that installs textfox and sidebery.
+
+To enable the module, add the repo as a flake input, import the module, and enable textfox
+
+If your home-manager module is defined within your `nixosConfigurations`:
+```nix
+# flake.nix
+
+{
+
+    inputs = {
+       # ---Snip---
+       home-manager = {
+         url = "github:nix-community/home-manager";
+         inputs.nixpkgs.follows = "nixpkgs";
+       };
+
+       textfox.url = "github:adriankarlen/textfox";
+       # ---Snip---
+    }
+
+    outputs = {nixpkgs, home-manager, ...} @ inputs: {
+        nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+          home-manager.nixosModules.home-manager
+            {
+             # Must pass in inputs so we can access the module
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+              };
+            }
+         ];
+      };
+   } 
+}
+```
+```nix
+# home.nix
+
+imports = [ inputs.textfox.homeManagerModules.default ];
+
+textfox = {
+    enable = true;
+    profile = "firefox profile name here";
+};
+
+```
+
+
+If you use `home-manager.lib.homeManagerConfiguration`
+```nix
+# flake.nix
+
+    inputs = {
+       # ---Snip---
+       home-manager = {
+         url = "github:nix-community/home-manager";
+         inputs.nixpkgs.follows = "nixpkgs";
+       };
+
+       textfox.url = "github:adriankarlen/textfox";
+       # ---Snip---
+    }
+
+    outputs = {nixpkgs, home-manager, textfox ...}: {
+        homeConfigurations."user@hostname" = home-manager.lib.homeManagerConfiguration {
+         pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
+         modules = [
+            textfox.homeManagerModules.default
+        # ...
+        ];
+     };
+  };
+}
+```
+```nix
+# home.nix
+
+textfox = {
+    enable = true;
+    profile = "firefox profile name here";
+};
+
+```
+
 ### Sidebery
 
 Sidebery css is being set from within `content/sidebery` (applied as content to
