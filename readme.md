@@ -1,4 +1,11 @@
-# textfox
+ 
+```
+   __            __  ____          
+  / /____  _  __/ /_/ __/___  _  __
+ / __/ _ \| |/_/ __/ /_/ __ \| |/_/
+/ /_/  __/>  </ /_/ __/ /_/ />  <  
+\__/\___/_/|_|\__/_/  \____/_/|_|  
+```
 
 _a port of spotify tui to firefox_
 
@@ -7,7 +14,7 @@ _a port of spotify tui to firefox_
 > is still a bit immature, but progress i being made, I welcome PR's from anyone
 > wanting to contribute.
 
-## preview
+## Preview
 
 ![image](https://github.com/adriankarlen/textfox/blob/main/misc/preview.png)
 
