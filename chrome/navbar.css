@@ -26,7 +26,6 @@
 }
 
 /* hide stuff */
-#identity-box,
 #back-button,
 #forward-button,
 #userContext-icons,
@@ -35,6 +34,76 @@
 #star-button-box,
 .urlbar-page-action {
   display: none;
+}
+
+/* 
+   hide elements of the identity box when:
+	   the page is secure (using https) and the domain is verified
+	   or 
+	   when mixed content is blocked
+*/
+
+/*
+when the page is secure (https) and the domain is verified (green padlock), 
+hide the identity icon box (usually shows padlock or site icon) 
+*/
+#identity-box[pageproxystate="valid"].verifiedDomain #identity-icon-box,
+  
+/*
+when the page is secure and the domain is verified, 
+hide the icon that indicates permissions are granted (like mic or camera)
+*/
+#identity-box[pageproxystate="valid"].verifiedDomain #permissions-granted-icon,
+
+/*
+when the page is secure but mixed active content (like insecure scripts) is blocked by Firefox,
+hide the identity icon box
+*/
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon-box,
+
+/*
+when the page is secure but mixed active content is blocked, 
+hide the permissions-granted icon
+*/
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #permissions-granted-icon,
+
+/*
+when the page is secure and the domain is verified,
+hide the permissions box if there are no active sharing icons (camera, mic, etc)
+*/
+#identity-box[pageproxystate="valid"].verifiedDomain #identity-permission-box:not([hasSharingIcon]),
+
+/*
+when the page is secure but mixed active content is blocked, 
+hide the permissions box if there are no active sharing icons
+*/
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-permission-box:not([hasSharingIcon]) {
+    /* completely hide matched elements */
+    display: none !important;
+}
+
+
+/* 
+   adjust layout if page is secure, permissions are granted, and site
+   is actively using a sharing feature (like camera or mic)
+*/
+
+/* 
+   when the page is secure and the domain is verified, if the permissions-granted icon 
+   is followed by a box that contains a sharing icon (eg for camera/mic),
+   adjust the margin to account for the space taken by the sharing icon
+   
+   the + selector targets the sibling element right after the permissions-granted icon.
+*/
+#identity-box[pageproxystate="valid"].verifiedDomain #permissions-granted-icon + box:has(image[sharing="true"]),
+
+/*
+   same as above, but for pages where mixed active content is blocked
+   if a sharing icon is present, adjust the layout to compensate for it
+*/
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #permissions-granted-icon + box:has(image[sharing="true"]) {
+    /* shift the box 4px to the left to compensate for the sharing icon */
+    margin-left: -4px !important;
 }
 
 #nav-bar {
