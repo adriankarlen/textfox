@@ -1,10 +1,4 @@
 @import url("variables.css");
 @import url("content/sidebery.css");
-@-moz-document url-prefix(about:) {
-  * {
-    font-family: var(--font-family) !important;
-  }
-  body {
-    background: var(--bg)
-  }
-}
+@import url("content/about.css");
+@import url("content/newtab.css");
