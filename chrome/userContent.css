@@ -1,10 +1,10 @@
+ /*    __            __  ____            */
+ /*   / /____  _  __/ /_/ __/___  _  __  */
+ /*  / __/ _ \| |/_/ __/ /_/ __ \| |/_/  */
+ /* / /_/  __/>  </ /_/ __/ /_/ />  <    */
+ /* \__/\___/_/|_|\__/_/  \____/_/|_|    */
+
 @import url("variables.css");
 @import url("content/sidebery.css");
-@-moz-document url-prefix(about:) {
-  * {
-    font-family: var(--font-family) !important;
-  }
-  body {
-    background: var(--bg)
-  }
-}
+@import url("content/about.css");
+@import url("content/newtab.css");

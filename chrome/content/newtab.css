@@ -1,0 +1,92 @@
+@-moz-document url("about:home"), url("about:newtab") {
+  body {
+    &.lightWallpaper {
+      color-scheme: light !important;
+    }
+    &.darkWallpaper: {
+      color-scheme: dark !important;
+    }
+    --newtab-background-color-secondary: color-mix(
+      in srgb,
+      var(--newtab-wallpaper-color) 90%,
+      var(--newtab-contextual-text-primary-color)
+    ) !important;
+    --newtab-border-color: color-mix(
+      in srgb,
+      var(--newtab-wallpaper-color) 50%,
+      var(--newtab-contextual-text-primary-color)
+    ) !important;
+    --newtab-element-hover-color: color-mix(
+      in srgb,
+      var(--newtab-wallpaper-color) 70%,
+      var(--newtab-contextual-text-primary-color)
+    ) !important;
+
+    --newtab-weather-background-color: transparent !important;
+  }
+
+  /* replace firefox logo */
+  .logo-and-wordmark {
+    .logo {
+      display: none !important;
+    }
+    .wordmark {
+      background: unset !important;
+      width: unset !important;
+      &::before {
+        content: "   __            __  ____          \A   / /____  _  __/ /_/ __/___  _  __\A  / __/ _ \\| |/_/ __/ /_/ __ \\| |/_/\A / /_/  __/>  </ /_/ __/ /_/ />  <  \A \\__/\\___/_/|_|\\__/_/  \\____/_/|_|  ";
+        white-space: pre-wrap;
+        display: block;
+        color: var(--newtab-contextual-text-primary-color);
+      }
+    }
+  }
+
+  /* search bar */
+  .search-wrapper {
+    .search-handoff-button,
+    input {
+      border: var(--width) solid var(--newtab-border-color) !important;
+      border-radius: var(--rounding) !important;
+      box-shadow: none !important;
+      &:hover {
+        background-color: var(--newtab-element-hover-color) !important;
+      }
+    }
+  }
+
+  /* links */
+  .top-site-outer {
+    .tile {
+      box-shadow: none !important;
+      border-radius: var(--rounding) !important;
+      border: var(--width) solid var(--newtab-border-color) !important;
+      &:hover {
+        background-color: var(--newtab-element-hover-color) !important;
+      }
+    }
+    .top-site-icon {
+      background-color: transparent !important;
+    }
+  }
+  .context-menu {
+    box-shadow: none !important;
+    border-radius: var(--rounding) !important;
+    border: var(--width) solid var(--newtab-border-color) !important;
+  }
+
+  /* history */
+  .card-outer {
+    border-radius: var(--rounding) !important;
+    border: var(--border-width) solid var(--newtab-border-color);
+    .card {
+      border-radius: var(--rounding) !important;
+    }
+    .card-preview-image-outer {
+      border-radius: var(--rounding) var(--rounding) 0 0 !important;
+    }
+    .card-context {
+      display: none !important;
+    }
+  }
+}
