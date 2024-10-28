@@ -4,50 +4,92 @@
   --accent: var(--toolbarbutton-icon-fill);
   --bg: var(--lwt-accent-color, -moz-dialog);
   --border: var(--toolbar-field-background-color);
-  --border-transition: .2s ease;
+  --border-transition: 0.2s ease;
   --rounding: 0px;
   --margin: 0.8rem;
   --width: 2px;
 
+  /* display states */
+  --display-horizontal-tabs: none; /* none | block */
+
   /*
    * ─[ overwrites ]───────────────────────────────────────────────────────
   */
+  --toolbar-color: currentColor !important;
   --link-color: var(--accent) !important;
-  --urlbarView-highlight-background: var(--toolbar-field-background-color) !important;
+  --urlbarView-highlight-background: var(
+    --toolbar-field-background-color
+  ) !important;
   --toolbox-non-lwt-bgcolor: var(--bg) !important;
+
+  /* border radius */
   --border-width: var(--width) !important;
   --border-radius-small: var(--rounding) !important;
   --border-radius-medium: var(--rounding) !important;
   --toolbarbutton-border-radius: var(--rounding) !important;
+  --tab-border-radius: var(--rounding) !important;
 
-  #root[data-toolbar-color-scheme="dark"] [data-color="yellow"] {
+  /* tabs */
+  --tab-selected-outline-color: transparent !important;
+  --tab-selected-bgcolor: color-mix(
+    in hsl,
+    var(--toolbar-field-color) 8%,
+    var(--toolbar-bgcolor)
+  ) !important;
+  --tab-hover-background-color: color-mix(
+    in hsl,
+    var(--toolbar-field-color) 4%,
+    var(--toolbar-bgcolor)
+  ) !important;
+  --tab-min-height: 29px !important;
+
+  /* containers */
+  [data-color="yellow"],
+  .identity-color-yellow {
     --color: #f6c177 !important;
+    --identity-tab-color: #f6c177 !important;
+    --identity-icon-color: #f6c177 !important;
   }
-  #root[data-toolbar-color-scheme="dark"] [data-color="purple"] {
+  [data-color="purple"],
+  .identity-color-purple {
     --color: #c4a7e7 !important;
+    --identity-tab-color: #c4a7e7 !important;
+    --identity-icon-color: #c4a7e7 !important;
   }
-  #root[data-toolbar-color-scheme="light"] [data-color="yellow"] {
-    --color: #ea9d34 !important;
-  }
-  #root[data-toolbar-color-scheme="light"] [data-color="purple"] {
-    --color: #907aa9 !important;
-  }
-  [data-color="blue"] {
+  [data-color="blue"],
+  .identity-color-blue {
     --color: #9ccfd8 !important;
+    --identity-tab-color: #9ccfd8 !important;
+    --identity-icon-color: #9ccfd8 !important;
   }
-  [data-color="turquoise"] {
+  [data-color="turquoise"],
+  .identity-color-turquoise {
     --color: #9ccfd8 !important;
+    --identity-tab-color: #9ccfd8 !important;
+    --identity-icon-color: #9ccfd8 !important;
   }
-  [data-color="green"] {
+  [data-color="green"],
+  .identity-color-green {
     --color: #3e8fb0 !important;
+    --identity-tab-color: #3e8fb0 !important;
+    --identity-icon-color: #3e8fb0 !important;
   }
-  [data-color="orange"] {
+  [data-color="orange"],
+  .identity-color-orange {
     --color: #f6c177 !important;
+    --identity-tab-color: #f6c177 !important;
+    --identity-icon-color: #f6c177 !important;
   }
-  [data-color="red"] {
+  [data-color="red"],
+  .identity-color-red {
     --color: #eb6f92 !important;
+    --identity-tab-color: #eb6f92 !important;
+    --identity-icon-color: #eb6f92 !important;
   }
-  [data-color="pink"] {
+  [data-color="pink"],
+  .identity-color-pink {
     --color: #ea9a97 !important;
+    --identity-tab-color: #ea9a97 !important;
+    --identity-icon-color: #ea9a97 !important;
   }
 }

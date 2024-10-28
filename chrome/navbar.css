@@ -4,26 +4,12 @@
   --urlbar-container-height: 32px !important;
 }
 
-#TabsToolbar {
-  visibility: collapse !important;
-}
-
-/* Keeps the .titlebar-spacer[type="pre-tabs"] and [type="post-tabs"] consistent in all window sizes */
-:root:not([sizemode="normal"]) .titlebar-spacer[type="pre-tabs"] {
-  display: block !important;
-}
-@media (max-width: 500px) {
-  .titlebar-spacer[type="post-tabs"] {
-    display: block !important;
-  }
-}
-
 /* Deactivating close, minimize and maximize buttons */
-.tab-close-button,
-#TabsToolbar .toolbarbutton-1,
-.titlebar-buttonbox-container {
-  display: none !important;
-}
+/* .tab-close-button, */
+/* #TabsToolbar .toolbarbutton-1, */
+/* .titlebar-buttonbox-container { */
+/*   display: none !important; */
+/* } */
 
 /* hide stuff */
 #back-button,
@@ -38,9 +24,8 @@
 
 /* 
    hide elements of the identity box when:
-	   the page is secure (using https) and the domain is verified
-	   or 
-	   when mixed content is blocked
+   the page is secure (using https) and the domain is verified
+   or when mixed content is blocked
 */
 
 /*
@@ -78,10 +63,9 @@ when the page is secure but mixed active content is blocked,
 hide the permissions box if there are no active sharing icons
 */
 #identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-permission-box:not([hasSharingIcon]) {
-    /* completely hide matched elements */
-    display: none !important;
+  /* completely hide matched elements */
+  display: none !important;
 }
-
 
 /* 
    adjust layout if page is secure, permissions are granted, and site
@@ -102,23 +86,27 @@ hide the permissions box if there are no active sharing icons
    if a sharing icon is present, adjust the layout to compensate for it
 */
 #identity-box[pageproxystate="valid"].mixedActiveBlocked #permissions-granted-icon + box:has(image[sharing="true"]) {
-    /* shift the box 4px to the left to compensate for the sharing icon */
-    margin-left: -4px !important;
-}
-
-#nav-bar {
-  border-top: var(--border-width) !important;
+  /* shift the box 4px to the left to compensate for the sharing icon */
+  margin-left: -4px !important;
 }
 
 #navigator-toolbox {
-  margin: 8px;
+  border-bottom: var(--border-width) !important;
+}
+
+#nav-bar {
+  margin: 8px 8px 2px;
   padding: 4px !important;
-  border-bottom: var(--border-width)!important;
+  border-top: var(--border-width) !important;
   border-style: solid !important;
   border-width: var(--border-width);
   border-color: var(--border) !important;
   border-radius: var(--rounding);
   transition: border-color var(--border-transition) !important;
+  &:hover,
+  &:focus {
+    border-color: var(--accent) !important;
+  }
   &::before {
     content: "navbar";
     background-color: var(--bg);
@@ -128,13 +116,44 @@ hide the permissions box if there are no active sharing icons
     z-index: 2;
     font-size: 1.15em;
   }
+  &:hover::before {
+    color: var(--accent);
+  }
+
+  &:not([urlbar-exceeds-toolbar-bounds]) {
+    overflow: unset !important;
+  }
+}
+#PersonalToolbar {
+  margin: 8px 8px 2px;
+  padding: 4px !important;
+  border-top: var(--border-width) !important;
+  border-style: solid !important;
+  border-width: var(--border-width);
+  border-color: var(--border) !important;
+  border-radius: var(--rounding);
+  transition: border-color var(--border-transition) !important;
   &:hover,
   &:focus {
     border-color: var(--accent) !important;
   }
+  &::before {
+    content: "bookmarks";
+    background-color: var(--bg);
+    position: absolute;
+    margin: -16px 8px;
+    padding: 0 2px;
+    z-index: 2;
+    font-size: 1.15em;
+  }
   &:hover::before {
     color: var(--accent);
   }
+}
+
+#PlacesToolbarItems {
+  display: flex;
+  justify-content: center;
 }
 
 :root[tabsintitlebar] #toolbar-menubar[autohide="true"] {
@@ -143,13 +162,9 @@ hide the permissions box if there are no active sharing icons
   padding-top: 3px !important;
 }
 
-#PlacesToolbarItems {
-  display: flex;
-  justify-content: center;
-}
 
 .browser-toolbar {
   &:not(.titlebar-color) {
-  background-color: transparent !important;
+    background-color: transparent !important;
   }
 }

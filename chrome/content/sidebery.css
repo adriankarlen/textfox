@@ -33,6 +33,11 @@ Styles for Sidebery extension
     --tabs-border-radius: var(--rounding) !important;
 
     --frame-el-overlay-selected-border: var(--s-toolbar-fg) !important;
+    --frame-el-overlay-hover-bg: color-mix(
+      in hsl,
+      currentColor 4%,
+      var(--toolbar-bg)
+    ) !important;
     --toolbar-el-overlay-selected-border: var(--s-toolbar-fg) !important;
     --status-notice: var(--s-toolbar-fg) !important;
   }
@@ -166,7 +171,11 @@ Styles for Sidebery extension
 
   /* accent colored selection */
   ::selection {
-    background: color-mix(in hsl, var(--s-toolbar-fg) 20%, transparent) !important;
+    background: color-mix(
+      in hsl,
+      var(--s-toolbar-fg) 20%,
+      transparent
+    ) !important;
   }
 
   /* notification */
