@@ -9,6 +9,9 @@
   --margin: 0.8rem;
   --width: 2px;
 
+  /* display states */
+  --display-horizontal-tabs: none; /* none | block */
+
   /*
    * ─[ overwrites ]───────────────────────────────────────────────────────
   */
@@ -35,7 +38,7 @@
   ) !important;
   --tab-hover-background-color: color-mix(
     in hsl,
-    var(--toolbar-field-color) 16%,
+    var(--toolbar-field-color) 4%,
     var(--toolbar-bgcolor)
   ) !important;
   --tab-min-height: 29px !important;
