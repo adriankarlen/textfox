@@ -1,0 +1,61 @@
+/* hide window controls */
+.titlebar-buttonbox-container {
+  display: none;
+}
+
+#TabsToolbar {
+  /* visibility: collapse !important; */
+  display: var(--display-horizontal-tabs);
+  margin: 8px 8px 2px;
+  border-top: var(--border-width) !important;
+  border-style: solid !important;
+  border-width: var(--border-width);
+  border-color: var(--border) !important;
+  border-radius: var(--rounding);
+  transition: border-color var(--border-transition) !important;
+  &:hover,
+  &:focus {
+    border-color: var(--accent) !important;
+  }
+  &::before {
+    content: "tabs";
+    background-color: var(--bg);
+    position: absolute;
+    margin: -12px 12px;
+    padding: 0 2px;
+    z-index: 2;
+    font-size: 1.15em;
+  }
+  &:hover::before {
+    color: var(--accent);
+  }
+  #firefox-view-button[open] > .toolbarbutton-icon,
+  .tab-background:is([selected], [multiselected]) {
+    box-shadow: none !important;
+    background-color: var(--tab-selected-bgcolor) !important;
+  }
+  .tabbrowser-tab:hover
+    > .tab-stack
+    > .tab-background:not([selected], [multiselected]) {
+    background-color: var(--tab-hover-background-color) !important;
+  }
+}
+.tab-background {
+  background: var(--toolbar-bgcolor) !important;
+}
+:root:not([privatebrowsingmode], [firefoxviewhidden])
+  :is(toolbarbutton, toolbarpaletteitem)
+  + #tabbrowser-tabs,
+:root[privatebrowsingmode]:not([firefoxviewhidden])
+  :is(
+    toolbarbutton:not(#firefox-view-button),
+    toolbarpaletteitem:not(#wrapper-firefox-view-button)
+  )
+  + #tabbrowser-tabs {
+  border-inline-start: none !important;
+  padding-inline-start: 0 !important;
+}
+
+.toolbar-items {
+  margin: 3px;
+}
