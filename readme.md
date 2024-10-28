@@ -9,18 +9,13 @@
 
 _a port of spotify tui to firefox_
 
-> [!NOTE]
-> I am very shocked at how big this got so quickly, I would say that the project
-> is still a bit immature, but progress i being made, I welcome PR's from anyone
-> wanting to contribute.
-
 ## Preview
 
 ![image](https://github.com/adriankarlen/textfox/blob/main/misc/preview.png)
 
 ## Prequisites
 
-- Sidebery
+- Sidebery (optional)
 
 ## Installation
 
@@ -30,6 +25,10 @@ _a port of spotify tui to firefox_
 4. Open the profile's root directory
 5. Move the files chrome directory and user.js there
 6. Restart firefox
+
+> [!IMPORTANT]
+> textfox now supports horizontal tabs, to enable them change the
+> `--display-horizontal-tabs` variable in `variables.css` to `block`.
 
 > [!NOTE]
 > If you don't want to use the provided user.js, please read through it and
