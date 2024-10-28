@@ -1,15 +1,16 @@
- /*    __            __  ____            */
- /*   / /____  _  __/ /_/ __/___  _  __  */
- /*  / __/ _ \| |/_/ __/ /_/ __ \| |/_/  */
- /* / /_/  __/>  </ /_/ __/ /_/ />  <    */
- /* \__/\___/_/|_|\__/_/  \____/_/|_|    */
+/*    __            __  ____            */
+/*   / /____  _  __/ /_/ __/___  _  __  */
+/*  / __/ _ \| |/_/ __/ /_/ __ \| |/_/  */
+/* / /_/  __/>  </ /_/ __/ /_/ />  <    */
+/* \__/\___/_/|_|\__/_/  \____/_/|_|    */
 
-@import url("variables.css");
+@import url("browser.css");
 @import url("icons.css");
 @import url("navbar.css");
-@import url("urlbar.css");
 @import url("sidebar.css");
-@import url("browser.css");
+@import url("tabs.css");
+@import url("urlbar.css");
+@import url("variables.css");
 
 * {
   font-family: var(--font-family);
