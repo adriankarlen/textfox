@@ -11,7 +11,9 @@ _a port of spotify tui to firefox_
 
 ## Preview
 
-![image](https://github.com/adriankarlen/textfox/blob/main/misc/preview.png)
+![image](https://github.com/adriankarlen/textfox/blob/main/misc/vertical-tabs.png)
+
+![image](https://github.com/adriankarlen/textfox/blob/main/misc/horizontal-tabs.png)
 
 ## Prequisites
 
