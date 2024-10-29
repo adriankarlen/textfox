@@ -1,4 +1,4 @@
-#appcontent {
+#tabbrowser-tabbox {
   margin: 8px;
   border: var(--border-width) solid var(--border);
   border-radius: var(--rounding);
@@ -8,25 +8,25 @@
     color: var(--accent);
     border-color: var(--accent) !important;
   }
-}
-#tabbrowser-tabbox::before {
-  content: "main";
-  background-color: var(--bg);
-  position: absolute;
-  margin: -20px 4px;
-  padding: 0 4px;
-  z-index: 2;
-  font-size: 1.15em;
+  &::before {
+    content: "main";
+    background-color: var(--bg);
+    position: absolute;
+    margin: -20px 4px;
+    padding: 0 4px;
+    z-index: 2;
+    font-size: 1.15em;
+  }
 }
 
 :root[inFullscreen="true"] {
-  #appcontent {
+  #tabbrowser-tabbox {
     margin: 0;
     border: none;
     padding: 0;
     transition: none;
-  }
-  #tabbrowser-tabbox::before {
-    display: none;
+    &::before {
+      display: none;
+    }
   }
 }
