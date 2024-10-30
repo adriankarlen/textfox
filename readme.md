@@ -15,6 +15,11 @@ _a port of spotify tui to firefox_
 
 ![image](https://github.com/adriankarlen/textfox/blob/main/misc/horizontal-tabs.png)
 
+> [!NOTE]
+> The color scheme used in the pictures is [Rosé Pine Moon](https://github.com/rose-pine/firefox).
+> `textfox` tries to not hard code any colors, [Firefox Color extension](https://addons.mozilla.org/en-US/firefox/addon/firefox-color/) is the
+> recommended approach to coloring Firefox with `textfox`.
+
 ## Prequisites
 
 - Sidebery (optional)
