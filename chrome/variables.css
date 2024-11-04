@@ -22,7 +22,7 @@
   ) !important;
   --toolbox-non-lwt-bgcolor: var(--bg) !important;
 
-  /* border radius */
+  /* borders */
   --border-width: var(--width) !important;
   --border-radius-small: var(--rounding) !important;
   --border-radius-medium: var(--rounding) !important;
@@ -42,6 +42,14 @@
     var(--toolbar-bgcolor)
   ) !important;
   --tab-min-height: 29px !important;
+
+  /* buttons */
+  --toolbarbutton-hover-background: var(
+    --tab-hover-background-color
+  ) !important;
+  --button-background-color-active: var(
+    --tab-hover-background-color
+  ) !important;
 
   /* containers */
   [data-color="yellow"],

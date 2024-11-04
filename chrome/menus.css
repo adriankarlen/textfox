@@ -1,0 +1,36 @@
+menupopup,
+panel {
+  --panel-background: var(--bg) !important;
+  --panel-border-radius: var(--rounding) !important;
+  --panel-border-color: var(--border) !important;
+  --panel-separator-color: var(--border) !important;
+}
+slot[part="content"] {
+  border-width: var(--width) !important;
+}
+
+#appMenu-popup {
+  #shadow-root {
+    > * {
+      border-width: 2px !important;
+    }
+  }
+}
+
+menu,
+menuitem {
+  &:where([_moz-menuactive]:not([disabled="true"])) {
+    background: var(--tab-selected-bgcolor) !important;
+  }
+  &:where([_moz-menuactive="true"][disabled="true"]) {
+    background: var(--tab-hover-background-color) !important;
+  }
+}
+
+.menupopup-arrowscrollbox {
+  border-width: var(--width) !important;
+}
+
+menuitem {
+  border-radius: var(--rounding) !important;
+}
