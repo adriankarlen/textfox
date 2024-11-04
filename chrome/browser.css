@@ -21,9 +21,9 @@
 
 :root[inFullscreen="true"] {
   #tabbrowser-tabbox {
-    margin: 0;
+    margin: 0 !important;
     border: none;
-    padding: 0;
+    padding: 0 !important;
     transition: none;
     &::before {
       display: none;
