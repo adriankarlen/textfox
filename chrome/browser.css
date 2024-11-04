@@ -1,8 +1,8 @@
 #tabbrowser-tabbox {
-  margin: 8px;
+  margin: 8px !important;
   border: var(--border-width) solid var(--border);
   border-radius: var(--rounding);
-  padding: 8px;
+  padding: 8px !important;
   transition: border-color var(--border-transition);
   &:hover {
     color: var(--accent);
