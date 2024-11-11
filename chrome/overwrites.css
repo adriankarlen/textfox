@@ -1,0 +1,87 @@
+:root {
+  --toolbar-color: currentColor !important;
+  --link-color: var(--tf-accent) !important;
+  --urlbarView-highlight-background: var(
+    --toolbar-field-background-color
+  ) !important;
+  --toolbox-non-lwt-bgcolor: var(--tf-bg) !important;
+
+  /* borders */
+  --border-width: var(--tf-width) !important;
+  --border-radius-small: var(--tf-rounding) !important;
+  --border-radius-medium: var(--tf-rounding) !important;
+  --toolbarbutton-border-radius: var(--tf-rounding) !important;
+  --tab-border-radius: var(--tf-rounding) !important;
+
+  /* tabs */
+  --tab-selected-outline-color: transparent !important;
+  --tab-selected-bgcolor: color-mix(
+    in hsl,
+    var(--toolbar-field-color) 8%,
+    var(--toolbar-bgcolor)
+  ) !important;
+  --tab-hover-background-color: color-mix(
+    in hsl,
+    var(--toolbar-field-color) 4%,
+    var(--toolbar-bgcolor)
+  ) !important;
+  --tab-min-height: 29px !important;
+
+  /* buttons */
+  --toolbarbutton-hover-background: var(
+    --tab-hover-background-color
+  ) !important;
+  --button-background-color-active: var(
+    --tab-hover-background-color
+  ) !important;
+
+  /* containers */
+  [data-color="yellow"],
+  .identity-color-yellow {
+    --color: #f6c177 !important;
+    --identity-tab-color: #f6c177 !important;
+    --identity-icon-color: #f6c177 !important;
+  }
+  [data-color="purple"],
+  .identity-color-purple {
+    --color: #c4a7e7 !important;
+    --identity-tab-color: #c4a7e7 !important;
+    --identity-icon-color: #c4a7e7 !important;
+  }
+  [data-color="blue"],
+  .identity-color-blue {
+    --color: #9ccfd8 !important;
+    --identity-tab-color: #9ccfd8 !important;
+    --identity-icon-color: #9ccfd8 !important;
+  }
+  [data-color="turquoise"],
+  .identity-color-turquoise {
+    --color: #9ccfd8 !important;
+    --identity-tab-color: #9ccfd8 !important;
+    --identity-icon-color: #9ccfd8 !important;
+  }
+  [data-color="green"],
+  .identity-color-green {
+    --color: #3e8fb0 !important;
+    --identity-tab-color: #3e8fb0 !important;
+    --identity-icon-color: #3e8fb0 !important;
+  }
+  [data-color="orange"],
+  .identity-color-orange {
+    --color: #f6c177 !important;
+    --identity-tab-color: #f6c177 !important;
+    --identity-icon-color: #f6c177 !important;
+  }
+  [data-color="red"],
+  .identity-color-red {
+    --color: #eb6f92 !important;
+    --identity-tab-color: #eb6f92 !important;
+    --identity-icon-color: #eb6f92 !important;
+  }
+  [data-color="pink"],
+  .identity-color-pink {
+    --color: #ea9a97 !important;
+    --identity-tab-color: #ea9a97 !important;
+    --identity-icon-color: #ea9a97 !important;
+  }
+}

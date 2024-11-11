@@ -52,16 +52,16 @@
   border-top: var(--border-width) !important;
   border-style: solid !important;
   border-width: var(--border-width);
-  border-color: var(--border) !important;
-  border-radius: var(--rounding);
-  transition: border-color var(--border-transition) !important;
+  border-color: var(--tf-border) !important;
+  border-radius: var(--tf-rounding);
+  transition: border-color var(--tf-border-transition) !important;
   &:hover,
   &:focus {
-    border-color: var(--accent) !important;
+    border-color: var(--tf-accent) !important;
   }
   &::before {
     content: "navbar";
-    background-color: var(--bg);
+    background-color: var(--tf-bg);
     position: absolute;
     margin: -16px 8px;
     padding: 0 2px;
@@ -69,7 +69,7 @@
     font-size: 1.15em;
   }
   &:hover::before {
-    color: var(--accent);
+    color: var(--tf-accent);
   }
 
   &:not([urlbar-exceeds-toolbar-bounds]) {
@@ -82,16 +82,16 @@
   border-top: var(--border-width) !important;
   border-style: solid !important;
   border-width: var(--border-width);
-  border-color: var(--border) !important;
-  border-radius: var(--rounding);
-  transition: border-color var(--border-transition) !important;
+  border-color: var(--tf-border) !important;
+  border-radius: var(--tf-rounding);
+  transition: border-color var(--tf-border-transition) !important;
   &:hover,
   &:focus {
-    border-color: var(--accent) !important;
+    border-color: var(--tf-accent) !important;
   }
   &::before {
     content: "bookmarks";
-    background-color: var(--bg);
+    background-color: var(--tf-bg);
     position: absolute;
     margin: -16px 8px;
     padding: 0 2px;
@@ -99,7 +99,7 @@
     font-size: 1.15em;
   }
   &:hover::before {
-    color: var(--accent);
+    color: var(--tf-accent);
   }
 }
 

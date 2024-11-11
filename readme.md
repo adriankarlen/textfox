@@ -35,7 +35,7 @@ _a port of spotify tui to firefox_
 
 > [!IMPORTANT]
 > textfox now supports horizontal tabs, to enable them change the
-> `--display-horizontal-tabs` variable in `variables.css` to `block`.
+> `--tf-display-horizontal-tabs` variable in `variables.css` to `block`.
 
 > [!NOTE]
 > If you don't want to use the provided user.js, please read through it and

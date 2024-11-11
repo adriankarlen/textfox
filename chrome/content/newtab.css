@@ -3,7 +3,7 @@
     &.lightWallpaper {
       color-scheme: light !important;
     }
-    &.darkWallpaper: {
+    &.darkWallpaper {
       color-scheme: dark !important;
     }
     --newtab-background-color-secondary: color-mix(
@@ -46,8 +46,8 @@
   .search-wrapper {
     .search-handoff-button,
     input {
-      border: var(--width) solid var(--newtab-border-color) !important;
-      border-radius: var(--rounding) !important;
+      border: var(--tf-width) solid var(--newtab-border-color) !important;
+      border-radius: var(--tf-rounding) !important;
       box-shadow: none !important;
       &:hover {
         background-color: var(--newtab-element-hover-color) !important;
@@ -59,8 +59,8 @@
   .top-site-outer {
     .tile {
       box-shadow: none !important;
-      border-radius: var(--rounding) !important;
-      border: var(--width) solid var(--newtab-border-color) !important;
+      border-radius: var(--tf-rounding) !important;
+      border: var(--tf-width) solid var(--newtab-border-color) !important;
       &:hover {
         background-color: var(--newtab-element-hover-color) !important;
       }
@@ -71,19 +71,19 @@
   }
   .context-menu {
     box-shadow: none !important;
-    border-radius: var(--rounding) !important;
-    border: var(--width) solid var(--newtab-border-color) !important;
+    border-radius: var(--tf-rounding) !important;
+    border: var(--tf-width) solid var(--newtab-border-color) !important;
   }
 
   /* history */
   .card-outer {
-    border-radius: var(--rounding) !important;
+    border-radius: var(--tf-rounding) !important;
     border: var(--border-width) solid var(--newtab-border-color);
     .card {
-      border-radius: var(--rounding) !important;
+      border-radius: var(--tf-rounding) !important;
     }
     .card-preview-image-outer {
-      border-radius: var(--rounding) var(--rounding) 0 0 !important;
+      border-radius: var(--tf-rounding) var(--tf-rounding) 0 0 !important;
     }
     .card-context {
       display: none !important;

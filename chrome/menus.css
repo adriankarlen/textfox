@@ -1,12 +1,12 @@
 menupopup,
 panel {
-  --panel-background: var(--bg) !important;
-  --panel-border-radius: var(--rounding) !important;
-  --panel-border-color: var(--border) !important;
-  --panel-separator-color: var(--border) !important;
+  --panel-background: var(--tf-bg) !important;
+  --panel-border-radius: var(--tf-rounding) !important;
+  --panel-border-color: var(--tf-accent) !important;
+  --panel-separator-color: var(--tf-border) !important;
 }
 slot[part="content"] {
-  border-width: var(--width) !important;
+  border-width: var(--tf-width) !important;
 }
 
 #appMenu-popup {
@@ -28,9 +28,9 @@ menuitem {
 }
 
 .menupopup-arrowscrollbox {
-  border-width: var(--width) !important;
+  border-width: var(--tf-width) !important;
 }
 
 menuitem {
-  border-radius: var(--rounding) !important;
+  border-radius: var(--tf-rounding) !important;
 }

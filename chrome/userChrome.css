@@ -8,16 +8,17 @@
 @import url("icons.css");
 @import url("menus.css");
 @import url("navbar.css");
+@import url("overwrites.css");
 @import url("sidebar.css");
 @import url("tabs.css");
 @import url("urlbar.css");
 @import url("variables.css");
 
 * {
-  font-family: var(--font-family);
-  font-size: var(--font-size);
+  font-family: var(--tf-font-family);
+  font-size: var(--tf-font-size);
 }
 
 body {
-  background-color: var(--bg);
+  background-color: var(--tf-bg);
 }
