@@ -65,7 +65,6 @@
     position: absolute;
     margin: -16px 8px;
     padding: 0 2px;
-    z-index: 2;
     font-size: 1.15em;
   }
   &:hover::before {
@@ -95,7 +94,6 @@
     position: absolute;
     margin: -16px 8px;
     padding: 0 2px;
-    z-index: 2;
     font-size: 1.15em;
   }
   &:hover::before {
