@@ -21,6 +21,10 @@
   }
 }
 
+#sidebar {
+  border-radius: var(--tf-rounding);
+}
+
 #sidebar-header {
   display: none;
 }
