@@ -10,8 +10,9 @@
 .urlbarView {
   text-align: start;
   margin-top: 4px;
-  background-color: var(--bg);
-  border: var(--border-width) solid var(--accent) !important;
+  background-color: var(--tf-bg);
+  border: var(--border-width) solid var(--tf-accent) !important;
+  border-radius: var(--tf-radius);
 }
 .urlbarView-body-inner {
   #urlbar[open] > .urlbarView > .urlbarView-body-outer > & {
@@ -19,5 +20,5 @@
   }
 }
 .urlbarView:not([noresults]) > .search-one-offs:not([hidden]) {
-  border-top: var(--border-width) solid var(--accent) !important;
+  border-top: var(--border-width) solid var(--tf-accent) !important;
 }

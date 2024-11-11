@@ -1,16 +1,16 @@
 #tabbrowser-tabbox {
   margin: 8px !important;
-  border: var(--border-width) solid var(--border);
-  border-radius: var(--rounding);
+  border: var(--border-width) solid var(--tf-border);
+  border-radius: var(--tf-rounding);
   padding: 8px !important;
-  transition: border-color var(--border-transition);
+  transition: border-color var(--tf-border-transition);
   &:hover {
-    color: var(--accent);
-    border-color: var(--accent) !important;
+    color: var(--tf-accent);
+    border-color: var(--tf-accent) !important;
   }
   &::before {
     content: "main";
-    background-color: var(--bg);
+    background-color: var(--tf-bg);
     position: absolute;
     margin: -20px 4px;
     padding: 0 4px;
