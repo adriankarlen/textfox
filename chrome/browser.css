@@ -1,3 +1,7 @@
+.browserContainer {
+  background: var(--tf-bg);
+}
+
 #tabbrowser-tabbox {
   margin: 8px !important;
   border: var(--border-width) solid var(--tf-border);
