@@ -35,7 +35,8 @@ _a port of spotify tui to firefox_
 
 > [!IMPORTANT]
 > textfox now supports horizontal tabs, to enable them change the
-> `--tf-display-horizontal-tabs` variable in `variables.css` to `block`.
+> `--tf-display-horizontal-tabs` variable in your `config.css` to `block`. See
+> [CSS configurations](textfox-#css-configurations) for more info.
 
 > [!NOTE]
 > If you don't want to use the provided user.js, please read through it and
@@ -159,8 +160,32 @@ the same settings are used (these can be set in about:config).
 | `shyfox.enable.context.menu.icons` | Many context menu items get icons | No icons in context menus |
 
 ### CSS configurations
-Inside `variables.css` reused variables are stored at the top, tweak those to
-your liking without any fear of breaking stuff.
+The theme ships with a `defaults.css`, this file can be overriden by creating a
+`config.css` inside the chrome directory. For instance if I'd want to change the
+border radius it would look like this:
+
+```css
+/* path: chrome/config.css */
+:root {
+  --tf-rounding: 4px;
+}
+```
+
+#### Defaults
+```css
+:root {
+  --tf-font-family: "SF Mono", Consolas, monospace;
+  --tf-font-size: 14px;
+  --tf-accent: var(--toolbarbutton-icon-fill);
+  --tf-bg: var(--lwt-accent-color, -moz-dialog);
+  --tf-border: var(--toolbar-field-background-color);
+  --tf-border-transition: 0.2s ease;
+  --tf-rounding: 0px;
+  --tf-margin: 0.8rem;
+  --tf-width: 2px;
+  --tf-display-horizontal-tabs: none; /* none | block */
+}
+```
 
 ### Acknowledgements
 
