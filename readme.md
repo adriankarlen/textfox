@@ -178,7 +178,7 @@ border radius it would look like this:
   --tf-font-size: 14px;
   --tf-accent: var(--toolbarbutton-icon-fill);
   --tf-bg: var(--lwt-accent-color, -moz-dialog);
-  --tf-border: var(--toolbar-field-background-color);
+  --tf-border: var(--arrowpanel-border-color, --toolbar-field-background-color);
   --tf-border-transition: 0.2s ease;
   --tf-rounding: 0px;
   --tf-margin: 0.8rem;
