@@ -5,7 +5,7 @@
   --tf-bg: var(--lwt-accent-color, -moz-dialog);
   --tf-border: var(--toolbar-field-background-color);
   --tf-border-transition: 0.2s ease;
-  --tf-rounding: 8px;
+  --tf-rounding: 0px;
   --tf-margin: 0.8rem;
   --tf-width: 2px;
   --tf-display-horizontal-tabs: none; /* none | block */
