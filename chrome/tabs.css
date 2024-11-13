@@ -16,18 +16,20 @@
   &:hover,
   &:focus {
     border-color: var(--tf-accent) !important;
+    &::before {
+      color: var(--tf-accent);
+    }
   }
   &::before {
     content: "tabs";
+    color: var(--tf-border);
     background-color: var(--tf-bg);
     position: absolute;
     margin: -12px 12px;
     padding: 0 2px;
     font-size: 1.15em;
   }
-  &:hover::before {
-    color: var(--tf-accent);
-  }
+
   #firefox-view-button[open] > .toolbarbutton-icon,
   .tab-background:is([selected], [multiselected]) {
     box-shadow: none !important;

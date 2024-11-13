@@ -61,6 +61,7 @@
   }
   &::before {
     content: "navbar";
+    color: var(--tf-border);
     background-color: var(--tf-bg);
     position: absolute;
     margin: -16px 8px;
@@ -90,6 +91,7 @@
   }
   &::before {
     content: "bookmarks";
+    color: var(--tf-border);
     background-color: var(--tf-bg);
     position: absolute;
     margin: -16px 8px;
