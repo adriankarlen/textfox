@@ -5,6 +5,7 @@
 /* \__/\___/_/|_|\__/_/  \____/_/|_|    */
 
 @import url("browser.css");
+@import url("findbar.css");
 @import url("icons.css");
 @import url("menus.css");
 @import url("navbar.css");
@@ -21,4 +22,8 @@
 
 body {
   background-color: var(--tf-bg);
+}
+
+::placeholder {
+  text-transform: lowercase;
 }
