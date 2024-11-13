@@ -28,6 +28,3 @@ findbar {
 .findbar-container > checkbox {
   text-transform: lowercase;
 }
-::placeholder {
-  text-transform: lowercase;
-}
