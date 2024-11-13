@@ -2,6 +2,10 @@
   background: var(--tf-bg);
 }
 
+browser {
+  border-radius: var(--tf-rounding);
+}
+
 #tabbrowser-tabbox {
   margin: 8px !important;
   border: var(--border-width) solid var(--tf-border);
