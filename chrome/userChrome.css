@@ -23,3 +23,7 @@
 body {
   background-color: var(--tf-bg);
 }
+
+::placeholder {
+  text-transform: lowercase;
+}
