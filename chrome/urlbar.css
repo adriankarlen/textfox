@@ -12,7 +12,7 @@
   margin-top: 4px;
   background-color: var(--tf-bg);
   border: var(--border-width) solid var(--tf-accent) !important;
-  border-radius: var(--tf-radius);
+  border-radius: 0 0 var(--tf-rounding) var(--tf-rounding);
 }
 .urlbarView-body-inner {
   #urlbar[open] > .urlbarView > .urlbarView-body-outer > & {
