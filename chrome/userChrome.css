@@ -13,7 +13,10 @@
 @import url("sidebar.css");
 @import url("tabs.css");
 @import url("urlbar.css");
-@import url("variables.css");
+
+/* configurations - DO NOT CHANGE ORDER */
+@import url("defaults.css");
+@import url("config.css");
 
 * {
   font-family: var(--tf-font-family);
