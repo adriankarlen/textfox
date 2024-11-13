@@ -13,8 +13,10 @@ browser {
   padding: 8px !important;
   transition: border-color var(--tf-border-transition);
   &:hover {
-    color: var(--tf-accent);
     border-color: var(--tf-accent) !important;
+    &::before {
+      color: var(--tf-accent);
+    }
   }
   &::before {
     content: "main";

@@ -8,6 +8,9 @@ findbar {
   &:hover {
     color: var(--tf-accent);
     border-color: var(--tf-accent) !important;
+    &::before {
+      color: var(--tf-accent);
+    }
   }
 
   &::before {
