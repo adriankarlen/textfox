@@ -1,0 +1,4 @@
+# Ignore defaults.css
+*/defaults.css
+
+# vim ft=gitignore

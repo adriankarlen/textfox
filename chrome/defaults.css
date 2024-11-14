@@ -1,12 +1,12 @@
 :root {
-  --tf-font-family: "SF Mono", Consolas, monospace;
-  --tf-font-size: 14px;
-  --tf-accent: var(--toolbarbutton-icon-fill);
-  --tf-bg: var(--lwt-accent-color, -moz-dialog);
-  --tf-border: var(--arrowpanel-border-color, --toolbar-field-background-color);
-  --tf-border-transition: 0.2s ease;
-  --tf-rounding: 0px;
-  --tf-margin: 0.8rem;
-  --tf-width: 2px;
-  --tf-display-horizontal-tabs: none; /* none | block */
+  --tf-font-family: "SF Mono", Consolas, monospace; /* Font family of config */
+  --tf-font-size: 14px; /* Font size of config */
+  --tf-accent: var(--toolbarbutton-icon-fill); /* Accent color used, eg: color when hovering a container  */
+  --tf-bg: var(--lwt-accent-color, -moz-dialog); /* Background color of all elements, tab colors derive from this */
+  --tf-border: var(--arrowpanel-border-color, --toolbar-field-background-color); /* Border color when not hovered */
+  --tf-border-transition: 0.2s ease; /* Smooth color transitions for borders */
+  --tf-border-width: 2px; /* Width of borders */
+  --tf-rounding: 0px; /* Border radius used through out the config */
+  --tf-margin: 0.8rem; /* Margin used between elements in sidebery */
+  --tf-display-horizontal-tabs: none; /* If horizontal tabs should be shown, none = hidden, block = shown */
 }

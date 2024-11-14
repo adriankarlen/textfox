@@ -7,7 +7,7 @@
   --toolbox-non-lwt-bgcolor: var(--tf-bg) !important;
 
   /* borders */
-  --border-width: var(--tf-width) !important;
+  --border-width: var(--tf-border-width) !important;
   --border-radius-small: var(--tf-rounding) !important;
   --border-radius-medium: var(--tf-rounding) !important;
   --toolbarbutton-border-radius: var(--tf-rounding) !important;
