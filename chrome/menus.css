@@ -6,7 +6,7 @@ panel {
   --panel-separator-color: var(--tf-border) !important;
 }
 slot[part="content"] {
-  border-width: var(--tf-width) !important;
+  border-width: var(--border-width) !important;
 }
 
 #appMenu-popup {
@@ -28,7 +28,7 @@ menuitem {
 }
 
 .menupopup-arrowscrollbox {
-  border-width: var(--tf-width) !important;
+  border-width: var(--border-width) !important;
 }
 
 menuitem {
