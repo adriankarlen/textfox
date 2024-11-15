@@ -26,6 +26,8 @@ _a port of spotify tui to firefox_
 
 ## Installation
 
+### Manual
+
 1. Download the files
 2. Go to `about:profiles`
 3. Find your profile -- ( _„This is the profile in use and it cannot be deleted.”_ )
@@ -44,44 +46,48 @@ _a port of spotify tui to firefox_
 > work.
 
 ### Nix
+
 This repo includes a Nix flake that exposes a home-manager module that installs textfox and sidebery.
 
-To enable the module, add the repo as a flake input, import the module, and enable textfox
+To enable the module, add the repo as a flake input, import the module, and enable textfox.
 
-If your home-manager module is defined within your `nixosConfigurations`:
+<details><summary>Install using your home-manager module defined within your `nixosConfigurations`:</summary>
+
 ```nix
-# flake.nix
 
-{
+  # flake.nix
 
-    inputs = {
-       # ---Snip---
-       home-manager = {
-         url = "github:nix-community/home-manager";
-         inputs.nixpkgs.follows = "nixpkgs";
-       };
+  {
 
-       textfox.url = "github:adriankarlen/textfox";
-       # ---Snip---
-    }
+      inputs = {
+         # ---Snip---
+         home-manager = {
+           url = "github:nix-community/home-manager";
+           inputs.nixpkgs.follows = "nixpkgs";
+         };
 
-    outputs = {nixpkgs, home-manager, ...} @ inputs: {
-        nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-          home-manager.nixosModules.home-manager
-            {
-             # Must pass in inputs so we can access the module
-              home-manager.extraSpecialArgs = {
-                inherit inputs;
-              };
-            }
-         ];
-      };
-   } 
-}
+         textfox.url = "github:adriankarlen/textfox";
+         # ---Snip---
+      }
+
+      outputs = {nixpkgs, home-manager, ...} @ inputs: {
+          nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
+            specialArgs = { inherit inputs; };
+            modules = [
+            home-manager.nixosModules.home-manager
+              {
+               # Must pass in inputs so we can access the module
+                home-manager.extraSpecialArgs = {
+                  inherit inputs;
+                };
+              }
+           ];
+        };
+     } 
+  }
 ```
 ```nix
+
 # home.nix
 
 imports = [ inputs.textfox.homeManagerModules.default ];
@@ -89,15 +95,20 @@ imports = [ inputs.textfox.homeManagerModules.default ];
 textfox = {
     enable = true;
     profile = "firefox profile name here";
+    config = {
+        # Optional config
+    };
 };
-
 ```
+</details>
 
+<details><summary>Install using `home-manager.lib.homeManagerConfiguration`:</summary>
 
-If you use `home-manager.lib.homeManagerConfiguration`
 ```nix
-# flake.nix
 
+  # flake.nix
+
+  {
     inputs = {
        # ---Snip---
        home-manager = {
@@ -111,25 +122,62 @@ If you use `home-manager.lib.homeManagerConfiguration`
 
     outputs = {nixpkgs, home-manager, textfox ...}: {
         homeConfigurations."user@hostname" = home-manager.lib.homeManagerConfiguration {
-         pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-         modules = [
-            textfox.homeManagerModules.default
-        # ...
-        ];
-     };
+            modules = [
+                textfox.homeManagerModules.default
+                # ...
+            ];
+        };
+    };
+  }
+```
+  ```nix
+
+  # home.nix
+
+  textfox = {
+      enable = true;
+      profile = "firefox profile name here";
+      config = {
+          # Optional config
+      };
   };
-}
-```
+  ```
+</details>
+
+<details><summary>Configuration options:</summary>
+
+All configuration options are optional and can be set as this example shows (real default values [can be found below](#defaults)):
+
 ```nix
-# home.nix
 
-textfox = {
-    enable = true;
-    profile = "firefox profile name here";
-};
-
+  textfox = {
+      enable = true;
+      profile = "firefox profile name here";
+      config = {
+        background = {
+          color = "#123456";
+        };
+        border = {
+          color = "#654321";
+          width = "4px";
+          transition = "1.0s ease";
+          radius = "3px";
+        };
+        displayHorizontalTabs = true;
+        font = { 
+          family = "Fira Code";
+          size = "15px";
+          accent = "#654321";
+        };
+        sidebery = {
+          margin = "1.0rem";
+        };
+      };
+  };
 ```
+</details>
 
 ### Sidebery
 
