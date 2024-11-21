@@ -1,16 +1,9 @@
-inputs:
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-let
+inputs: {config, lib, pkgs, ...}:
+let 
   cfg = config.textfox;
   inherit (pkgs.stdenv.hostPlatform) system;
   package = inputs.self.packages.${system}.default;
-in
-{
+in {
 
   imports = [
     inputs.nur.hmModules.nur
@@ -23,11 +16,11 @@ in
       description = "The profile to apply the textfox configuration to";
     };
     config = lib.mkOption {
-      default = { };
+      default = {};
       type = lib.types.submodule {
         options = {
           background = lib.mkOption {
-            default = { };
+            default = {};
             type = lib.types.submodule {
               options = {
                 color = lib.mkOption {
@@ -49,7 +42,7 @@ in
             description = "Show back and forward navigation buttons in the Firefox UI";
           };
           font = lib.mkOption {
-            default = { };
+            default = {};
             type = lib.types.submodule {
               options = {
                 family = lib.mkOption {
@@ -71,7 +64,7 @@ in
             };
           };
           border = lib.mkOption {
-            default = { };
+            default = {};
             type = lib.types.submodule {
               options = {
                 color = lib.mkOption {
@@ -98,7 +91,7 @@ in
             };
           };
           sidebery = lib.mkOption {
-            default = { };
+            default = {};
             type = lib.types.submodule {
               options = {
                 margin = lib.mkOption {
@@ -130,61 +123,17 @@ in
     home.file.".mozilla/firefox/${cfg.profile}/chrome/config.css" = {
       text = lib.strings.concatStrings [
         ":root {"
-        (lib.strings.concatStrings [
-          " --tf-font-family: "
-          cfg.config.font.family
-          ";"
-        ])
-        (lib.strings.concatStrings [
-          " --tf-font-size: "
-          cfg.config.font.size
-          ";"
-        ])
-        (lib.strings.concatStrings [
-          " --tf-font-accent: "
-          cfg.config.font.accent
-          ";"
-        ])
-        (lib.strings.concatStrings [
-          " --tf-background: "
-          cfg.config.background.color
-          ";"
-        ])
-        (lib.strings.concatStrings [
-          " --tf-border-color: "
-          cfg.config.border.color
-          ";"
-        ])
-        (lib.strings.concatStrings [
-          " --tf-border-transition: "
-          cfg.config.border.transition
-          ";"
-        ])
-        (lib.strings.concatStrings [
-          " --tf-border-width: "
-          cfg.config.border.width
-          ";"
-        ])
-        (lib.strings.concatStrings [
-          " --tf-border-radius: "
-          cfg.config.border.radius
-          ";"
-        ])
-        (lib.strings.concatStrings [
-          " --tf-sidebery-margin: "
-          cfg.config.sidebery.margin
-          ";"
-        ])
-        (lib.strings.concatStrings [
-          " --tf-display-horizontal-tabs: "
-          (if cfg.config.displayHorizontalTabs then "block" else "none")
-          ";"
-        ])
-        (lib.strings.concatStrings [
-          " --tf-nav-buttons-display: "
-          (if cfg.config.displayNavButtons then "block" else "none")
-          ";"
-        ])
+        (lib.strings.concatStrings [ " --tf-font-family: " cfg.config.font.family ";" ])
+        (lib.strings.concatStrings [ " --tf-font-size: " cfg.config.font.size ";" ])
+        (lib.strings.concatStrings [ " --tf-font-accent: " cfg.config.font.accent ";" ])
+        (lib.strings.concatStrings [ " --tf-background: " cfg.config.background.color ";" ])
+        (lib.strings.concatStrings [ " --tf-border-color: " cfg.config.border.color ";" ])
+        (lib.strings.concatStrings [ " --tf-border-transition: " cfg.config.border.transition ";" ])
+        (lib.strings.concatStrings [ " --tf-border-width: " cfg.config.border.width ";" ])
+        (lib.strings.concatStrings [ " --tf-border-radius: " cfg.config.border.radius ";" ])
+        (lib.strings.concatStrings [ " --tf-sidebery-margin: " cfg.config.sidebery.margin ";" ])
+        (lib.strings.concatStrings [ " --tf-display-horizontal-tabs: " (if cfg.config.displayHorizontalTabs then "block" else "none") ";" ])
+        (lib.strings.concatStrings [ " --tf-nav-buttons-display: " (if cfg.config.displayNavButtons then "block" else "none") ";" ])
         " }"
       ];
     };
