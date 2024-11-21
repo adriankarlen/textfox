@@ -36,6 +36,11 @@ in {
             default = false;
             description = "Enables horizontal tabs at the top";
           };
+          displayNavButtons = lib.mkOption {
+            type = lib.types.bool;
+            default = false;
+            description = "Show back and forward navigation buttons in the Firefox UI";
+          };
           font = lib.mkOption {
             default = {};
             type = lib.types.submodule {
@@ -80,7 +85,7 @@ in {
                 radius = lib.mkOption {
                   type = lib.types.str;
                   default = "0px";
-                  description = "Border radius used through out the config";
+                  description = "Border radius used throughout the config";
                 };
               };
             };
@@ -106,28 +111,29 @@ in {
     programs.firefox = {
       enable = true;
       profiles."${cfg.profile}" = {
-          extraConfig = builtins.readFile "${package}/user.js";
-          extensions = [ config.nur.repos.rycee.firefox-addons.sidebery ];
+        extraConfig = builtins.readFile "${package}/user.js";
+        extensions = [ config.nur.repos.rycee.firefox-addons.sidebery ];
       };
     };
 
     home.file.".mozilla/firefox/${cfg.profile}/chrome" = {
-        source = "${package}/chrome";
-        recursive = true;
+      source = "${package}/chrome";
+      recursive = true;
     };
     home.file.".mozilla/firefox/${cfg.profile}/chrome/config.css" = {
       text = lib.strings.concatStrings [
         ":root {"
-        ( lib.strings.concatStrings [ " --tf-font-family: " cfg.config.font.family ";" ] )
-        ( lib.strings.concatStrings [ " --tf-font-size: " cfg.config.font.size ";" ] )
-        ( lib.strings.concatStrings [ " --tf-font-accent: " cfg.config.font.accent ";" ] )
-        ( lib.strings.concatStrings [ " --tf-background: " cfg.config.background.color ";" ] )
-        ( lib.strings.concatStrings [ " --tf-border-color: " cfg.config.border.color ";" ] )
-        ( lib.strings.concatStrings [ " --tf-border-transition: " cfg.config.border.transition ";" ] )
-        ( lib.strings.concatStrings [ " --tf-border-width: " cfg.config.border.width ";" ] )
-        ( lib.strings.concatStrings [ " --tf-border-radius: " cfg.config.border.radius ";" ] )
-        ( lib.strings.concatStrings [ " --tf-sidebery-margin: " cfg.config.sidebery.margin ";" ] )
-        ( lib.strings.concatStrings [ " --tf-display-horizontal-tabs: " ( if cfg.config.displayHorizontalTabs then "block" else "none" ) ";" ] )
+        (lib.strings.concatStrings [ " --tf-font-family: " cfg.config.font.family ";" ])
+        (lib.strings.concatStrings [ " --tf-font-size: " cfg.config.font.size ";" ])
+        (lib.strings.concatStrings [ " --tf-font-accent: " cfg.config.font.accent ";" ])
+        (lib.strings.concatStrings [ " --tf-background: " cfg.config.background.color ";" ])
+        (lib.strings.concatStrings [ " --tf-border-color: " cfg.config.border.color ";" ])
+        (lib.strings.concatStrings [ " --tf-border-transition: " cfg.config.border.transition ";" ])
+        (lib.strings.concatStrings [ " --tf-border-width: " cfg.config.border.width ";" ])
+        (lib.strings.concatStrings [ " --tf-border-radius: " cfg.config.border.radius ";" ])
+        (lib.strings.concatStrings [ " --tf-sidebery-margin: " cfg.config.sidebery.margin ";" ])
+        (lib.strings.concatStrings [ " --tf-display-horizontal-tabs: " (if cfg.config.displayHorizontalTabs then "block" else "none") ";" ])
+        (lib.strings.concatStrings [ " --tf-nav-buttons-display: " (if cfg.config.displayNavButtons then "block" else "none") ";" ])
         " }"
       ];
     };
