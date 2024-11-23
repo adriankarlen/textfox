@@ -166,6 +166,7 @@ All configuration options are optional and can be set as this example shows (rea
           radius = "3px";
         };
         displayHorizontalTabs = true;
+        displayNavButtons = true;
         font = { 
           family = "Fira Code";
           size = "15px";
@@ -232,6 +233,7 @@ border radius it would look like this:
   --tf-rounding: 0px; /* Border radius used through out the config */
   --tf-margin: 0.8rem; /* Margin used between elements in sidebery */
   --tf-display-horizontal-tabs: none; /* If horizontal tabs should be shown, none = hidden, block = shown */
+  --tf-nav-buttons-display: none; /* If the navigation buttons (back, forward) should be shown, none = hidden, block = shown */
 }
 ```
 
