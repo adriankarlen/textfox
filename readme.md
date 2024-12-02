@@ -167,6 +167,7 @@ All configuration options are optional and can be set as this example shows (rea
         };
         displayHorizontalTabs = true;
         displayNavButtons = true;
+        newtabLogo = "   __            __  ____          \A   / /____  _  __/ /_/ __/___  _  __\A  / __/ _ \\| |/_/ __/ /_/ __ \\| |/_/\A / /_/  __/>  </ /_/ __/ /_/ />  <  \A \\__/\\___/_/|_|\\__/_/  \\____/_/|_|  ";
         font = { 
           family = "Fira Code";
           size = "15px";
@@ -234,8 +235,16 @@ border radius it would look like this:
   --tf-margin: 0.8rem; /* Margin used between elements in sidebery */
   --tf-display-horizontal-tabs: none; /* If horizontal tabs should be shown, none = hidden, block = shown */
   --tf-nav-buttons-display: none; /* If the navigation buttons (back, forward) should be shown, none = hidden, block = shown */
+  --tf-newtab-logo: "   __            __  ____          \A   / /____  _  __/ /_/ __/___  _  __\A  / __/ _ \\| |/_/ __/ /_/ __ \\| |/_/\A / /_/  __/>  </ /_/ __/ /_/ />  <  \A \\__/\\___/_/|_|\\__/_/  \\____/_/|_|  ";
 }
 ```
+
+#### Changing the new tab logo
+
+The new tab logo can be any string you want, to create a string with line breaks
+add a `\A` at every line break, also make sure to break any backslashes, eg. if
+you want a `\`, you need to write `\\`. I used [this tool](https://www.patorjk.com/software/taag/#p=display&f=Slant&t=textfox)
+to create the current logo.
 
 ### Acknowledgements
 
