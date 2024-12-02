@@ -246,6 +246,8 @@ add a `\A` at every line break, also make sure to break any backslashes, eg. if
 you want a `\`, you need to write `\\`. I used [this tool](https://www.patorjk.com/software/taag/#p=display&f=Slant&t=textfox)
 to create the current logo.
 
+Wanna hide the logo? Simply pass an empty string as the logo.
+
 ### Acknowledgements
 
 [Naezr](https://github.com/Naezr) - Icon logic and some sideberry logic.
