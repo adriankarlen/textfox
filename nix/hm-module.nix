@@ -41,6 +41,11 @@ in {
             default = false;
             description = "Show back and forward navigation buttons in the Firefox UI";
           };
+          newtabLogo = lib.mkOption {
+            type = lib.types.str;
+            default = "   __            __  ____          \A   / /____  _  __/ /_/ __/___  _  __\A  / __/ _ \\| |/_/ __/ /_/ __ \\| |/_/\A / /_/  __/>  </ /_/ __/ /_/ />  <  \A \\__/\\___/_/|_|\\__/_/  \\____/_/|_|  ";
+            description = "The ascii logo used for new tab page";
+          };
           font = lib.mkOption {
             default = {};
             type = lib.types.submodule {
@@ -134,6 +139,7 @@ in {
         (lib.strings.concatStrings [ " --tf-sidebery-margin: " cfg.config.sidebery.margin ";" ])
         (lib.strings.concatStrings [ " --tf-display-horizontal-tabs: " (if cfg.config.displayHorizontalTabs then "block" else "none") ";" ])
         (lib.strings.concatStrings [ " --tf-nav-buttons-display: " (if cfg.config.displayNavButtons then "block" else "none") ";" ])
+        (lib.strings.concatStrings [ " --tf-newtab-logo: " cfg.config.newtabLogo ";" ])
         " }"
       ];
     };

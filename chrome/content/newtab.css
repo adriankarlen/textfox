@@ -34,10 +34,12 @@
       background: unset !important;
       width: unset !important;
       &::before {
-        content: "   __            __  ____          \A   / /____  _  __/ /_/ __/___  _  __\A  / __/ _ \\| |/_/ __/ /_/ __ \\| |/_/\A / /_/  __/>  </ /_/ __/ /_/ />  <  \A \\__/\\___/_/|_|\\__/_/  \\____/_/|_|  ";
+        content: var(--tf-newtab-logo);
         white-space: pre-wrap;
         display: block;
         color: var(--newtab-contextual-text-primary-color);
+        font-size: var(--tf-font-size);
+        font-weight: 600;
       }
     }
   }
@@ -46,7 +48,7 @@
   .search-wrapper {
     .search-handoff-button,
     input {
-      border: var(--tf-width) solid var(--newtab-border-color) !important;
+      border: var(--border-width) solid var(--newtab-border-color) !important;
       border-radius: var(--tf-rounding) !important;
       box-shadow: none !important;
       &:hover {
@@ -60,7 +62,7 @@
     .tile {
       box-shadow: none !important;
       border-radius: var(--tf-rounding) !important;
-      border: var(--tf-width) solid var(--newtab-border-color) !important;
+      border: var(--border-width) solid var(--newtab-border-color) !important;
       &:hover {
         background-color: var(--newtab-element-hover-color) !important;
       }
@@ -72,7 +74,7 @@
   .context-menu {
     box-shadow: none !important;
     border-radius: var(--tf-rounding) !important;
-    border: var(--tf-width) solid var(--newtab-border-color) !important;
+    border: var(--border-width) solid var(--newtab-border-color) !important;
   }
 
   /* history */
