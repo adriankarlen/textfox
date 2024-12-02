@@ -138,7 +138,7 @@ in {
         (lib.strings.concatStrings [ " --tf-border-radius: " cfg.config.border.radius ";" ])
         (lib.strings.concatStrings [ " --tf-sidebery-margin: " cfg.config.sidebery.margin ";" ])
         (lib.strings.concatStrings [ " --tf-display-horizontal-tabs: " (if cfg.config.displayHorizontalTabs then "block" else "none") ";" ])
-        (lib.strings.concatStrings [ " --tf-nav-buttons-display: " (if cfg.config.displayNavButtons then "block" else "none") ";" ])
+        (lib.strings.concatStrings [ " --tf-display-nav-buttons: " (if cfg.config.displayNavButtons then "block" else "none") ";" ])
         (lib.strings.concatStrings [ " --tf-newtab-logo: " cfg.config.newtabLogo ";" ])
         " }"
       ];
