@@ -16,7 +16,7 @@
 /* configurable navigation buttons */
 #back-button,
 #forward-button {
-  display: var(--tf-nav-buttons-display);
+  display: var(--tf-display-nav-buttons);
 }
 
 /* 
