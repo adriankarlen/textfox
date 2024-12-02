@@ -239,7 +239,7 @@ border radius it would look like this:
 }
 ```
 
-#### Changing the new tab logo
+### Changing the new tab logo
 
 The new tab logo can be any string you want, to create a string with line breaks
 add a `\A` at every line break, also make sure to break any backslashes, eg. if
@@ -248,7 +248,7 @@ to create the current logo.
 
 Wanna hide the logo? Simply pass an empty string as the logo.
 
-### Acknowledgements
+## Acknowledgements
 
 [Naezr](https://github.com/Naezr) - Icon logic and some sideberry logic.
 
