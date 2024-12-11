@@ -59,6 +59,12 @@ Styles for Sidebery extension
     height: calc(((100vw - var(--tabs-margin)) / 3.6) / var(--m)) !important;
   }
 
+  /* full-width titles */
+  #root[data-pinned-tabs-list="true"] .PinnedTabsBar .tab-wrapper .Tab {
+    --n: 1 !important;
+    --m: 1.4 !important;
+  }
+
   /* 1 pinned tab */
   .PinnedTabsBar .tab-wrapper:nth-child(1):last-child .Tab {
     --n: 1;
