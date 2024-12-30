@@ -1,3 +1,31 @@
+#vertical-tabs {
+  margin: 8px !important;
+  border: var(--border-width) solid var(--tf-border);
+  border-radius: var(--tf-rounding);
+  padding: 8px 0px !important;
+  transition: border-color var(--tf-border-transition);
+  &:hover,
+  &:focus {
+    border-color: var(--tf-accent) !important;
+  }
+  &::before {
+    content: "tabs";
+    background-color: var(--tf-bg);
+    position: absolute;
+    margin: -20px 12px;
+    padding: 0 2px;
+    font-size: 1.15em;
+  }
+  &:hover::before {
+    color: var(--tf-accent);
+  }
+}
+
+/* hide customize button from sidebar */
+[view='viewCustomizeSidebar'] {
+  display: none !important;
+}
+
 /* hide window controls */
 .titlebar-buttonbox-container {
   display: none;
@@ -40,9 +68,7 @@
     background-color: var(--tab-hover-background-color) !important;
   }
 }
-.tab-background {
-  background: var(--toolbar-bgcolor) !important;
-}
+
 :root:not([privatebrowsingmode], [firefoxviewhidden])
   :is(toolbarbutton, toolbarpaletteitem)
   + #tabbrowser-tabs,
