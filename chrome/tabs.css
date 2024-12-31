@@ -21,9 +21,9 @@ box#vertical-tabs {
   }
 }
 
-/* hide customize button from sidebar */
+/* configurable sidebar customize button */
 [view='viewCustomizeSidebar'] {
-  display: none !important;
+  display: var(--tf-display-customize-sidebar) !important;
 }
 
 /* hide window controls */
