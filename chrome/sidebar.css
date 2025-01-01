@@ -52,6 +52,7 @@
   }
 
   .tools-and-extensions {
+    display: var(--tf-display-sidebar-tools) !important;
     margin: 8px;
     border: var(--border-width) solid var(--tf-border);
     border-radius: var(--tf-rounding) !important;
