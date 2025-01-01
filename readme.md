@@ -235,6 +235,7 @@ border radius it would look like this:
   --tf-margin: 0.8rem; /* Margin used between elements in sidebery */
   --tf-display-horizontal-tabs: none; /* If horizontal tabs should be shown, none = hidden, block = shown */
   --tf-display-nav-buttons: none; /* If the navigation buttons (back, forward) should be shown, none = hidden, block = shown */
+  --tf-display-customize-sidebar: inline-block; /* If the "Customize sidebar" button on the sidebar should be shown, none = hidden, inline-block = shown */ 
   --tf-newtab-logo: "   __            __  ____          \A   / /____  _  __/ /_/ __/___  _  __\A  / __/ _ \\| |/_/ __/ /_/ __ \\| |/_/\A / /_/  __/>  </ /_/ __/ /_/ />  <  \A \\__/\\___/_/|_|\\__/_/  \\____/_/|_|  ";
 }
 ```
