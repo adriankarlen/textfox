@@ -84,4 +84,7 @@
     --identity-tab-color: #ea9a97 !important;
     --identity-icon-color: #ea9a97 !important;
   }
+
+  /* opacity */
+  --inactive-titlebar-opacity: 1 !important;
 }
