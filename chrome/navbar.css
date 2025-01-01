@@ -132,3 +132,9 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
     margin: -16px 12px;
     left: 0;
   }
+
+  .titlebar-spacer[type="pre-tabs"],
+  .titlebar-spacer[type="post-tabs"] {
+    width: 0 !important;
+  }
+}
