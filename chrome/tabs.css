@@ -21,11 +21,6 @@ box#vertical-tabs {
   }
 }
 
-/* configurable sidebar customize button */
-[view='viewCustomizeSidebar'] {
-  display: var(--tf-display-customize-sidebar) !important;
-}
-
 /* hide window controls */
 .titlebar-buttonbox-container {
   display: none;

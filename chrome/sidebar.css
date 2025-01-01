@@ -21,7 +21,7 @@
 }
 
 #sidebar {
-  border-radius: var(--tf-rounding);
+  border-radius: var(--tf-rounding) !important;
 }
 
 #sidebar-header {
@@ -30,4 +30,53 @@
 
 #sidebar-splitter {
   display: none;
+}
+
+@media (-moz-bool-pref: "sidebar.revamp") {
+  #sidebar {
+    box-shadow: none !important;
+  }
+  #sidebar-main {
+    :root[lwtheme] & {
+      background-color: var(--tf-bg) !important;
+      background-image: unset !important;
+    }
+  }
+  #sidebar-box {
+    font-size: unset !important;
+    padding: 8px !important;
+    &::before {
+      margin: -20px 4px;
+      content: "tool";
+    }
+  }
+
+  .tools-and-extensions {
+    display: var(--tf-display-sidebar-tools) !important;
+    margin: 8px;
+    border: var(--border-width) solid var(--tf-border);
+    border-radius: var(--tf-rounding) !important;
+    transition: border-color var(--tf-border-transition);
+    &:hover {
+      border-color: var(--tf-accent) !important;
+    }
+    &::before {
+      content: "tools";
+      color: var(--lwt-text-color);
+      background-color: var(--tf-bg);
+      margin: -12px 10px -9px;
+      padding: 0 4px;
+      font-size: 1.15em;
+    }
+    &:hover::before {
+      color: var(--tf-accent);
+    }
+  }
+#tabbrowser-tabs[orient="vertical"] {
+  &:not([expanded]) {
+      #vertical-pinned-tabs-container, .tab-stack {
+        width: 100% !important;
+      }
+    }
+  }
 }

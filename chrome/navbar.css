@@ -70,6 +70,7 @@
     margin: -16px 8px;
     padding: 0 2px;
     font-size: 1.15em;
+    left: 0;
   }
   &:hover::before {
     color: var(--tf-accent);
@@ -123,5 +124,17 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 .browser-toolbar {
   &:not(.titlebar-color) {
     background-color: transparent !important;
+  }
+}
+
+@media (-moz-bool-pref: "sidebar.revamp") {
+  #nav-bar::before {
+    margin: -16px 12px;
+    left: 0;
+  }
+
+  .titlebar-spacer[type="pre-tabs"],
+  .titlebar-spacer[type="post-tabs"] {
+    width: 0 !important;
   }
 }
