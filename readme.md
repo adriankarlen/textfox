@@ -28,12 +28,12 @@ _a port of spotify tui to firefox_
 
 ### Installation script
 
-> [!IMPORTANT]
-> This script automates file writes, use with caution. 
-
 1. Download/clone the repo.
 2. Inside the download run `sh tf-install.sh` and follow the script
    instructions.
+
+> [!IMPORTANT]
+> This script automates file writes, use with caution. 
 
 > [!NOTE]
 > The installation script copies to contents of the repos `chrome` directory to
