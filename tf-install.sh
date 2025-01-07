@@ -23,7 +23,7 @@ fi
 
 cp -rf "chrome/"* "$path/chrome/"
 
-read -p "Do you want to install the user.js file? (Y/N)" install_js 
+read -p "Do you want to install the user.js file? (Y/N): " install_js 
 
 case "$install_js" in
   [Yy]* ) cp "user.js" "$path/user.js";
