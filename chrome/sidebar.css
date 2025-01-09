@@ -3,6 +3,7 @@
   border: var(--border-width) solid var(--tf-border);
   border-radius: var(--tf-rounding) !important;
   transition: border-color var(--tf-border-transition);
+  background: var(--tf-bg) !important;
   &:hover {
     border-color: var(--tf-accent) !important;
   }
