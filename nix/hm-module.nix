@@ -41,6 +41,11 @@ in {
             default = false;
             description = "Show back and forward navigation buttons in the Firefox UI";
           };
+          displayUrlbarIcons = lib.mkOption {
+            type = lib.types.bool;
+            default = false;
+            description = "Show icons inside url bar";
+          };
           displaySidebarTools = lib.mkOption {
             type = lib.types.bool;
             default = true;
@@ -144,6 +149,7 @@ in {
         (lib.strings.concatStrings [ " --tf-sidebery-margin: " cfg.config.sidebery.margin ";" ])
         (lib.strings.concatStrings [ " --tf-display-horizontal-tabs: " (if cfg.config.displayHorizontalTabs then "block" else "none") ";" ])
         (lib.strings.concatStrings [ " --tf-display-nav-buttons: " (if cfg.config.displayNavButtons then "flex" else "none") ";" ])
+        (lib.strings.concatStrings [ " --tf-display-urlbar-icons: " (if cfg.config.displayUrlbarIcons then "flex" else "none") ";" ])
         (lib.strings.concatStrings [ " --tf-display-customize-sidebar: " (if cfg.config.displaySidebarTools then "flex" else "none") ";" ])
         (lib.strings.concatStrings [ " --tf-newtab-logo: " cfg.config.newtabLogo ";" ])
         " }"
