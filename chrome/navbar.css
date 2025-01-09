@@ -9,8 +9,8 @@
 #translations-button-icon,
 #tracking-protection-icon-container,
 #star-button-box,
-.urlbar-page-action {
-  display: none;
+.urlbar-page-action:not([hidden="true"]) {
+  display: var(--tf-display-urlbar-icons);
 }
 
 /* configurable navigation buttons */
@@ -29,7 +29,7 @@
     #identity-icon,
     #identity-permission-box:not([hasSharingIcon]),
     #permissions-granted-icon {
-      display: none !important;
+      display: var(--tf-display-urlbar-icons) !important;
     }
     #permissions-granted-icon + box:has(image[sharing="true"]) {
       margin-left: -4px;
@@ -38,7 +38,7 @@
   &.mixedActiveBlocked {
     #permissions-granted-icon,
     #identity-permission-box:not([hasSharingIcon]) {
-      display: none !important;
+      display: var(--tf-display-urlbar-icons) !important;
     }
     #permissions-granted-icon + box:has(image[sharing="true"]) {
       margin-left: -4px;
