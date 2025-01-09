@@ -26,7 +26,7 @@
 */
 #identity-box[pageproxystate="valid"] {
   &.verifiedDomain {
-    #identity-icon-box,
+    #identity-icon,
     #identity-permission-box:not([hasSharingIcon]),
     #permissions-granted-icon {
       display: none !important;
