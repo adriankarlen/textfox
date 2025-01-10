@@ -12,9 +12,8 @@
     color: var(--lwt-text-color);
     background-color: var(--tf-bg);
     position: absolute;
-    margin: -12px 12px;
+    margin: -0.85rem 0.85rem;
     padding: 0 4px;
-    font-size: 1.15em;
   }
   &:hover::before {
     color: var(--tf-accent);
@@ -48,6 +47,7 @@
     padding: 8px !important;
     &::before {
       margin: -20px 4px;
+      margin: -1.75rem 0rem;
       content: "tool";
     }
   }
@@ -65,9 +65,8 @@
       content: "tools";
       color: var(--lwt-text-color);
       background-color: var(--tf-bg);
-      margin: -12px 10px -9px;
+      margin: -1rem .75rem 0rem;
       padding: 0 4px;
-      font-size: 1.15em;
     }
     &:hover::before {
       color: var(--tf-accent);
