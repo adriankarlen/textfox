@@ -59,6 +59,10 @@
     list-style-image: url("./icons/bitwarden.svg");
   }
 
+  button[title="Bitwarden"] img {
+    content: url("./icons/bitwarden.svg");
+  }
+
   /* Privacy Badger => it's own monochrome icon */
   :is(
       .webextension-browser-action,
