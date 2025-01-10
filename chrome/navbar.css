@@ -69,8 +69,6 @@
     position: absolute;
     margin: -16px 8px;
     padding: 0 2px;
-    font-size: 1.15em;
-    left: 0;
   }
   &:hover::before {
     color: var(--tf-accent);
@@ -97,9 +95,8 @@
     content: "bookmarks";
     background-color: var(--tf-bg);
     position: absolute;
-    margin: -16px 8px;
+    margin: -1.25rem .4rem;
     padding: 0 2px;
-    font-size: 1.15em;
   }
   &:hover::before {
     color: var(--tf-accent);
@@ -129,7 +126,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 
 @media (-moz-bool-pref: "sidebar.revamp") {
   #nav-bar::before {
-    margin: -16px 12px;
+    margin: -1.35rem .75rem;
     left: 0;
   }
 

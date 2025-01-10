@@ -1,5 +1,5 @@
 findbar {
-  margin: 8px !important;
+  margin: 1rem 0rem 0rem !important;
   border: var(--border-width) solid var(--tf-border) !important;
   background: var(--tf-bg) !important;
   border-radius: var(--tf-rounding);
@@ -17,9 +17,8 @@ findbar {
     content: "find";
     background-color: var(--tf-bg);
     position: absolute;
-    margin: -18px 4px;
+    margin: -1.75rem .75rem;
     padding: 0 4px;
-    font-size: 1.15em;
   }
 }
 

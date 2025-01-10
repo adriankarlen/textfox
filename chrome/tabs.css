@@ -12,9 +12,8 @@ box#vertical-tabs {
     content: "tabs";
     background-color: var(--tf-bg);
     position: absolute;
-    margin: -20px 12px;
+    margin: -1.75rem .75rem;
     padding: 0 2px;
-    font-size: 1.15em;
   }
   &:hover::before {
     color: var(--tf-accent);
@@ -27,7 +26,6 @@ box#vertical-tabs {
 }
 
 #TabsToolbar {
-  /* visibility: collapse !important; */
   display: var(--tf-display-horizontal-tabs);
   margin: 8px 8px 2px;
   border-top: var(--border-width) !important;
@@ -47,9 +45,8 @@ box#vertical-tabs {
     content: "tabs";
     background-color: var(--tf-bg);
     position: absolute;
-    margin: -12px 12px;
+    margin: -1rem .75rem;
     padding: 0 2px;
-    font-size: 1.15em;
   }
 
   #firefox-view-button[open] > .toolbarbutton-icon,

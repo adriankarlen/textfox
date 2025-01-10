@@ -22,9 +22,8 @@ browser {
     content: "main";
     background-color: var(--tf-bg);
     position: absolute;
-    margin: -20px 4px;
+    margin: -1.75rem 0rem;
     padding: 0 4px;
-    font-size: 1.15em;
   }
 }
 
