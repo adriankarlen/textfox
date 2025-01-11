@@ -22,7 +22,7 @@ box#vertical-tabs {
 
 /* hide window controls */
 .titlebar-buttonbox-container {
-  display: none;
+  display: var(--tf-display-window-controls);
 }
 
 #TabsToolbar {

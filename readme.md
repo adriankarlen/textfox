@@ -180,6 +180,7 @@ All configuration options are optional and can be set as this example shows (rea
           radius = "3px";
         };
         displayHorizontalTabs = true;
+        displayWindowControls = true;
         displayNavButtons = true;
         displayUrlbarIcons = true;
         displaySidebarTools  = false;
@@ -250,6 +251,7 @@ border radius it would look like this:
   --tf-rounding: 0px; /* Border radius used through out the config */
   --tf-margin: 0.8rem; /* Margin used between elements in sidebery */
   --tf-display-horizontal-tabs: none; /* If horizontal tabs should be shown, none = hidden, block = shown */
+  --tf-display-window-controls: none; /* If the window controls should be shown, none = hidden, flex = shown */ 
   --tf-display-nav-buttons: none; /* If the navigation buttons (back, forward) should be shown, none = hidden, flex = shown */
   --tf-display-urlbar-icons: none; /* If the icons inside the url bar should be shown, none = hidden, flex = shown */
   --tf-display-sidebar-tools: flex; /* If the "Customize sidebar" button on the sidebar should be shown, none = hidden, flex = shown */ 

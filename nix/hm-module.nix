@@ -36,6 +36,11 @@ in {
             default = false;
             description = "Enables horizontal tabs at the top";
           };
+          displayWindowControls = lib.mkOption {
+            type = lib.types.bool;
+            default = false;
+            description = "Enables window controls";
+          };
           displayNavButtons = lib.mkOption {
             type = lib.types.bool;
             default = false;
@@ -148,6 +153,7 @@ in {
         (lib.strings.concatStrings [ " --tf-border-radius: " cfg.config.border.radius ";" ])
         (lib.strings.concatStrings [ " --tf-sidebery-margin: " cfg.config.sidebery.margin ";" ])
         (lib.strings.concatStrings [ " --tf-display-horizontal-tabs: " (if cfg.config.displayHorizontalTabs then "block" else "none") ";" ])
+        (lib.strings.concatStrings [ " --tf-display-window-controls: " (if cfg.config.displayWindowControls then "flex" else "none") ";" ])
         (lib.strings.concatStrings [ " --tf-display-nav-buttons: " (if cfg.config.displayNavButtons then "flex" else "none") ";" ])
         (lib.strings.concatStrings [ " --tf-display-urlbar-icons: " (if cfg.config.displayUrlbarIcons then "flex" else "none") ";" ])
         (lib.strings.concatStrings [ " --tf-display-customize-sidebar: " (if cfg.config.displaySidebarTools then "flex" else "none") ";" ])
