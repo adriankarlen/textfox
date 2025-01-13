@@ -64,6 +64,7 @@
     border-color: var(--tf-accent) !important;
   }
   &::before {
+    display: var(--tf-display-titles);
     content: "navbar";
     background-color: var(--tf-bg);
     position: absolute;
@@ -92,6 +93,7 @@
     border-color: var(--tf-accent) !important;
   }
   &::before {
+    display: var(--tf-display-titles);
     content: "bookmarks";
     background-color: var(--tf-bg);
     position: absolute;

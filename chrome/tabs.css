@@ -9,6 +9,7 @@ box#vertical-tabs {
     border-color: var(--tf-accent) !important;
   }
   &::before {
+    display: var(--tf-display-titles);
     content: "tabs";
     background-color: var(--tf-bg);
     position: absolute;
@@ -42,6 +43,7 @@ box#vertical-tabs {
     }
   }
   &::before {
+    display: var(--tf-display-titles);
     content: "tabs";
     background-color: var(--tf-bg);
     position: absolute;
