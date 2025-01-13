@@ -19,6 +19,7 @@ browser {
     }
   }
   &::before {
+    display: var(--tf-display-titles);
     content: "main";
     background-color: var(--tf-bg);
     position: absolute;

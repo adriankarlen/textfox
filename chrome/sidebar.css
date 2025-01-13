@@ -8,6 +8,7 @@
     border-color: var(--tf-accent) !important;
   }
   &::before {
+    display: var(--tf-display-titles);
     content: "tabs";
     color: var(--lwt-text-color);
     background-color: var(--tf-bg);
