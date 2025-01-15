@@ -56,7 +56,7 @@ in {
             default = true;
             description = "Show sidebar tools section";
           };
-          displayTitles = lib.mkoption {
+          displayTitles = lib.mkOption {
             type = lib.types.bool;
             default = true;
             description = "Show titles on blocks";
