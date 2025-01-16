@@ -3,6 +3,10 @@ let
   cfg = config.textfox;
   inherit (pkgs.stdenv.hostPlatform) system;
   package = inputs.self.packages.${system}.default;
+  configDir =
+    if pkgs.stdenv.hostPlatform.isDarwin
+    then "Library/Application\ Support/Firefox/Profiles/"
+    else ".mozilla/firefox/";
 in {
 
   imports = [
@@ -141,11 +145,11 @@ in {
       };
     };
 
-    home.file.".mozilla/firefox/${cfg.profile}/chrome" = {
+    home.file."${configDir}${cfg.profile}/chrome" = {
       source = "${package}/chrome";
       recursive = true;
     };
-    home.file.".mozilla/firefox/${cfg.profile}/chrome/config.css" = {
+    home.file."${configDir}${cfg.profile}/chrome/config.css" = {
       text = lib.strings.concatStrings [
         ":root {"
         (lib.strings.concatStrings [ " --tf-font-family: " cfg.config.font.family ";" ])
