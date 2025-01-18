@@ -159,7 +159,7 @@ in {
         (lib.strings.concatStrings [ " --tf-border-color: " cfg.config.border.color ";" ])
         (lib.strings.concatStrings [ " --tf-border-transition: " cfg.config.border.transition ";" ])
         (lib.strings.concatStrings [ " --tf-border-width: " cfg.config.border.width ";" ])
-        (lib.strings.concatStrings [ " --tf-border-radius: " cfg.config.border.radius ";" ])
+        (lib.strings.concatStrings [ " --tf-rounding: " cfg.config.border.radius ";" ])
         (lib.strings.concatStrings [ " --tf-sidebery-margin: " cfg.config.sidebery.margin ";" ])
         (lib.strings.concatStrings [ " --tf-display-horizontal-tabs: " (if cfg.config.displayHorizontalTabs then "block" else "none") ";" ])
         (lib.strings.concatStrings [ " --tf-display-window-controls: " (if cfg.config.displayWindowControls then "flex" else "none") ";" ])
