@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nur.url = github:nix-community/NUR;
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs = { self, nixpkgs, nur } @ inputs: let
