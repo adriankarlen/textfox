@@ -1,5 +1,5 @@
 {
-  description = "A flake that exposes a home-manager module for textfox";
+  description = "Firefox theme for the tui enthusiast";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -15,8 +15,9 @@
     });
 
     nixosModules.default = self.nixosModules.textfox; # convention
-    nixosModules.textfox = import ./nix/nixos.nix;
+    nixosModules.textfox = import ./nix/modules/nixos.nix;
 
-    homeManagerModules.default = import ./nix/hm-module.nix inputs;
+    homeManagerModules.default = self.homeManagerModules.textfox; 
+    homeManagerModules.textfox = import ./nix/modules/home-manager.nix;
   };
 }
