@@ -14,6 +14,9 @@
       default = pkgsForEach.${system}.callPackage ./nix/default.nix {};
     });
 
+    nixosModules.default = self.nixosModules.textfox; # convention
+    nixosModules.textfox = import ./nix/nixos.nix;
+
     homeManagerModules.default = import ./nix/hm-module.nix inputs;
   };
 }
