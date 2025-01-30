@@ -8,7 +8,7 @@
   inherit (lib.modules) mkIf;
   inherit (lib.attrsets) optionalAttrs;
   inherit (lib.strings) toJSON;
-  inherit (lib.types) enum str bool;
+  inherit (lib.types) listOf path enum str bool;
 
   cfg = config.textfox;
 in {
@@ -138,6 +138,18 @@ in {
       };
     };
 
+    extraPoliciesFiles = mkOption {
+      type = listOf path;
+      default = [];
+      description = "Custom policy.json files passed; see 'about:policies'.";
+    };
+
+    extraPrefsFiles = mkOption {
+      type = listOf path;
+      default = [];
+      description = "Custom autoconfig.js files passed";
+    };
+
     extraUserChrome = mkOption {
       type = str;
       default = "";
@@ -209,8 +221,9 @@ in {
         cat "$extraUserContentPath" >> "$out/userContent.css"
       '';
 
-
     in [(pkgs.wrapFirefox cfg.package {
+      inherit (cfg) extraPoliciesFiles extraPrefsFiles;
+      pname = "textfox";
       extraPolicies = optionalAttrs (cfg.tab.style == "vertical") {
         ExtensionSettings = {
           # Declarative installation of sidebery
