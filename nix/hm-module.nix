@@ -142,11 +142,16 @@ in {
       profiles."${cfg.profile}" = {
         extraConfig = builtins.readFile "${package}/user.js";
         extensions = [ config.nur.repos.rycee.firefox-addons.sidebery ];
+        userChrome = lib.mkBefore (builtins.readFile "${package}/chrome/userChrome.css");
       };
     };
 
     home.file."${configDir}${cfg.profile}/chrome" = {
-      source = "${package}/chrome";
+      source = pkgs.lib.cleanSourceWith {
+        src = "${package}/chrome";
+        filter = path: type:
+          !(type == "regular" && baseNameOf path == "userChrome.css");
+      };
       recursive = true;
     };
     home.file."${configDir}${cfg.profile}/chrome/config.css" = {
