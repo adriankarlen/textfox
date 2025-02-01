@@ -11,13 +11,14 @@
     pkgsForEach = nixpkgs.legacyPackages;
   in {
     packages = forAllSystems (system: {
-      default = pkgsForEach.${system}.callPackage ./nix/default.nix {};
+      default = pkgsForEach.${system}.callPackage ./nix/pkgs/default.nix {};
+      wrapTextfox = pkgsForEach.${system}.callPackage ./nix/pkgs/wrapTextfox.nix {};
     });
 
     nixosModules.default = self.nixosModules.textfox; # convention
-    nixosModules.textfox = import ./nix/modules/nixos.nix;
+    nixosModules.textfox = import ./nix/modules/nixos.nix inputs;
 
     homeManagerModules.default = self.homeManagerModules.textfox; 
-    homeManagerModules.textfox = import ./nix/modules/home-manager.nix;
+    homeManagerModules.textfox = import ./nix/modules/home-manager.nix inputs;
   };
 }

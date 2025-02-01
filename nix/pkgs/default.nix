@@ -4,7 +4,7 @@ stdenv.mkDerivation {
   pname = "textfox";
   version = "git";
 
-  src = ../.;
+  src = ../../.;
 
   installPhase = ''
     mkdir -p $out/chrome
