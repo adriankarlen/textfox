@@ -45,7 +45,7 @@ in {
 
       background.color = mkOption {
         type = str;
-        default = "var(--lw-accent-color, -moz-dialog)";
+        default = "var(--lwt-accent-color, -moz-dialog)";
         description = "Background color of all elements.";
       };
 
