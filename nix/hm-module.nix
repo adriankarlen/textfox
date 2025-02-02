@@ -142,6 +142,7 @@ in {
       profiles."${cfg.profile}" = {
         extraConfig = builtins.readFile "${package}/user.js";
         extensions = [ config.nur.repos.rycee.firefox-addons.sidebery ];
+        containersForce = true;
         userChrome = lib.mkBefore (builtins.readFile "${package}/chrome/userChrome.css");
       };
     };
