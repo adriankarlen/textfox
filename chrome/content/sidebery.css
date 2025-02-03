@@ -127,10 +127,15 @@ Styles for Sidebery extension
     }
   }
 
+  #root.root:not(:hover) .Tab .title {
+    opacity: var(--tf-sidebar-collapsed-title);
+  }
+
   .Tab .body {
     text-transform: lowercase;
     & .title {
       color: color-mix(in hsl, var(--s-popup-fg) 50%, transparent) !important;
+      transition: opacity var(--tf-sidebar-transition) !important;
     }
   }
 
