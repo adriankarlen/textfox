@@ -26,13 +26,15 @@
 */
 #identity-box[pageproxystate="valid"] {
   &.verifiedDomain {
-    #identity-icon,
     #identity-permission-box:not([hasSharingIcon]),
     #permissions-granted-icon {
       display: var(--tf-display-urlbar-icons) !important;
     }
     #permissions-granted-icon + box:has(image[sharing="true"]) {
       margin-left: -4px;
+    }
+    #identity-icon {
+      list-style-image: unset !important;
     }
   }
   &.mixedActiveBlocked {
