@@ -220,11 +220,9 @@ settings provided.
 ## Customization
 
 The icon configuration utilizes code that is originally from ShyFox, therefore
-the same settings are used (these can be set in about:config).
+the same setting is used (can be set in about:config).
 | Setting | true | false (default) |
 | -------------------------------------- | --------------------------------------------------------------------- | ------------------------- |
-| `shyfox.enable.ext.mono.toolbar.icons` | Supported extensions get monochrome icons as toolbar buttons | Standard icons used |
-| `shyfox.enable.ext.mono.context.icons` | Supported extensions get monochrome icons as context menu items | Standard icons used |
 | `shyfox.enable.context.menu.icons` | Many context menu items get icons | No icons in context menus |
 
 ### CSS configurations
@@ -259,6 +257,7 @@ border radius it would look like this:
   --tf-display-titles: flex; /* If titles (tabs, navbar, main etc.) should be shown, none = hidden, flex = shown */
   --tf-newtab-logo: "   __            __  ____          \A   / /____  _  __/ /_/ __/___  _  __\A  / __/ _ \\| |/_/ __/ /_/ __ \\| |/_/\A / /_/  __/>  </ /_/ __/ /_/ />  <  \A \\__/\\___/_/|_|\\__/_/  \\____/_/|_|  ";
 }
+  --tf-extension-icons-color-filter: none; /* Set a filter on icons in the toolbar and context menu */
 ```
 
 ### Changing the new tab logo
