@@ -53,8 +53,8 @@
 }
 
 #nav-bar {
-  margin: 8px 8px 2px;
-  padding: 4px !important;
+  margin: var(--tf-navbar-margin);
+  padding: var(--tf-navbar-padding) !important;
   border-top: var(--border-width) !important;
   border-style: solid !important;
   border-width: var(--border-width);
