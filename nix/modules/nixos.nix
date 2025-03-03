@@ -61,8 +61,6 @@ in {
       preferences = let
         icons = config.textfox.config.icons;
       in ''
-        pref("shyfox.enable.ext.mono.toolbar.icons", ${boolToString icons.toolbar.extensions.enable});
-        pref("shyfox.enable.ext.mono.context.icons", ${boolToString icons.context.extensions.enable});
         pref("shyfox.enable.context.menu.icons", ${boolToString icons.context.firefox.enable});
       '';
 
