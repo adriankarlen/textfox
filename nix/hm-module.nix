@@ -19,6 +19,11 @@ in {
       type = lib.types.str;
       description = "The profile to apply the textfox configuration to";
     };
+    copyOnActivation = lib.mkOption {
+      type = lib.types.bool;
+      default = pkgs.stdenv.hostPlatform.isDarwin;
+      description = "Copy the chrome/ folder into the designated firefox profile on home-manager activation instead of symlinking it. This is for user content styling to fully work on macOS";
+    };
     config = lib.mkOption {
       default = {};
       type = lib.types.submodule {
@@ -136,40 +141,77 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    programs.firefox = {
-      enable = true;
-      profiles."${cfg.profile}" = {
-        extraConfig = builtins.readFile "${package}/user.js";
-        extensions = [ config.nur.repos.rycee.firefox-addons.sidebery ];
+  config = let
+    configCss = pkgs.writeText "config.css" (lib.strings.concatStrings [
+      ":root {"
+      (lib.strings.concatStrings [ " --tf-font-family: " cfg.config.font.family ";" ])
+      (lib.strings.concatStrings [ " --tf-font-size: " cfg.config.font.size ";" ])
+      (lib.strings.concatStrings [ " --tf-font-accent: " cfg.config.font.accent ";" ])
+      (lib.strings.concatStrings [ " --tf-background: " cfg.config.background.color ";" ])
+      (lib.strings.concatStrings [ " --tf-border-color: " cfg.config.border.color ";" ])
+      (lib.strings.concatStrings [ " --tf-border-transition: " cfg.config.border.transition ";" ])
+      (lib.strings.concatStrings [ " --tf-border-width: " cfg.config.border.width ";" ])
+      (lib.strings.concatStrings [ " --tf-border-radius: " cfg.config.border.radius ";" ])
+      (lib.strings.concatStrings [ " --tf-sidebery-margin: " cfg.config.sidebery.margin ";" ])
+      (lib.strings.concatStrings [ " --tf-display-horizontal-tabs: " (if cfg.config.displayHorizontalTabs then "block" else "none") ";" ])
+      (lib.strings.concatStrings [ " --tf-display-window-controls: " (if cfg.config.displayWindowControls then "flex" else "none") ";" ])
+      (lib.strings.concatStrings [ " --tf-display-nav-buttons: " (if cfg.config.displayNavButtons then "flex" else "none") ";" ])
+      (lib.strings.concatStrings [ " --tf-display-urlbar-icons: " (if cfg.config.displayUrlbarIcons then "flex" else "none") ";" ])
+      (lib.strings.concatStrings [ " --tf-display-customize-sidebar: " (if cfg.config.displaySidebarTools then "flex" else "none") ";" ])
+      (lib.strings.concatStrings [ " --tf-display-titles: " (if cfg.config.displayTitles then "flex" else "none") ";" ])
+      (lib.strings.concatStrings [ " --tf-newtab-logo: " cfg.config.newtabLogo ";" ])
+      " }"
+    ]);
+
+    linkCfg = {
+      home.file."${configDir}${cfg.profile}/chrome" = {
+        source = "${package}/chrome";
+        recursive = true;
+      };
+
+      home.file."${configDir}${cfg.profile}/chrome/config.css" = {
+        source = configCss;
       };
     };
 
-    home.file."${configDir}${cfg.profile}/chrome" = {
-      source = "${package}/chrome";
-      recursive = true;
+    copyOnActivationCfg = {
+      home.activation.copyTextfoxProfile = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+        PROFILE_DIR="${configDir}${cfg.profile}"
+
+        cd "${package}"
+        SRC_FILES=$(find . -type f | grep ./chrome)
+
+        if [ ! -d "$HOME/$PROFILE_DIR" ]; then
+          echo "Profile ${cfg.profile} does not exist, creating it"
+          mkdir -p "$HOME/$PROFILE_DIR"
+        fi
+
+        cd "$HOME/$PROFILE_DIR"
+
+        for file in $SRC_FILES; do
+          dirname=$(dirname "$file")
+          if [ ! -d "$dirname" ]; then
+            mkdir -p "$dirname"
+          fi
+          cp -L "${package}/$file" "$HOME/$PROFILE_DIR/$file"
+          chmod 744 "$HOME/$PROFILE_DIR/$file"
+        done
+
+        cp -L ${configCss} "$HOME/$PROFILE_DIR/chrome/config.css"
+        chmod 744 "$HOME/$PROFILE_DIR/chrome/config.css"
+      '';
     };
-    home.file."${configDir}${cfg.profile}/chrome/config.css" = {
-      text = lib.strings.concatStrings [
-        ":root {"
-        (lib.strings.concatStrings [ " --tf-font-family: " cfg.config.font.family ";" ])
-        (lib.strings.concatStrings [ " --tf-font-size: " cfg.config.font.size ";" ])
-        (lib.strings.concatStrings [ " --tf-font-accent: " cfg.config.font.accent ";" ])
-        (lib.strings.concatStrings [ " --tf-background: " cfg.config.background.color ";" ])
-        (lib.strings.concatStrings [ " --tf-border-color: " cfg.config.border.color ";" ])
-        (lib.strings.concatStrings [ " --tf-border-transition: " cfg.config.border.transition ";" ])
-        (lib.strings.concatStrings [ " --tf-border-width: " cfg.config.border.width ";" ])
-        (lib.strings.concatStrings [ " --tf-border-radius: " cfg.config.border.radius ";" ])
-        (lib.strings.concatStrings [ " --tf-sidebery-margin: " cfg.config.sidebery.margin ";" ])
-        (lib.strings.concatStrings [ " --tf-display-horizontal-tabs: " (if cfg.config.displayHorizontalTabs then "block" else "none") ";" ])
-        (lib.strings.concatStrings [ " --tf-display-window-controls: " (if cfg.config.displayWindowControls then "flex" else "none") ";" ])
-        (lib.strings.concatStrings [ " --tf-display-nav-buttons: " (if cfg.config.displayNavButtons then "flex" else "none") ";" ])
-        (lib.strings.concatStrings [ " --tf-display-urlbar-icons: " (if cfg.config.displayUrlbarIcons then "flex" else "none") ";" ])
-        (lib.strings.concatStrings [ " --tf-display-customize-sidebar: " (if cfg.config.displaySidebarTools then "flex" else "none") ";" ])
-        (lib.strings.concatStrings [ " --tf-display-titles: " (if cfg.config.displayTitles then "flex" else "none") ";" ])
-        (lib.strings.concatStrings [ " --tf-newtab-logo: " cfg.config.newtabLogo ";" ])
-        " }"
-      ];
-    };
-  };
+  in lib.mkIf cfg.enable (lib.mkMerge [
+    {
+      programs.firefox = {
+        enable = true;
+        profiles."${cfg.profile}" = {
+          extensions = [ config.nur.repos.rycee.firefox-addons.sidebery ];
+          extraConfig = builtins.readFile "${package}/user.js";
+        };
+      };
+    }
+    (lib.mkIf cfg.copyOnActivation copyOnActivationCfg)
+    (lib.mkIf (!cfg.copyOnActivation) linkCfg)
+  ]);
 }
