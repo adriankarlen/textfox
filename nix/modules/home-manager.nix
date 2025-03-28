@@ -21,6 +21,11 @@ in {
       type = lib.types.str;
       description = "The profile to apply the textfox configuration to";
     };
+    useLegacyExtensions = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      decription = "If 'extensions' should be used instead of 'extensions.packages' for extension config";
+    };
   };
 
   config = lib.mkIf cfg.enable {
