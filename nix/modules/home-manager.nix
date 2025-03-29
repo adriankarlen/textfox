@@ -6,6 +6,7 @@ let
     if pkgs.stdenv.hostPlatform.isDarwin
     then "Library/Application\ Support/Firefox/Profiles/"
     else ".mozilla/firefox/";
+  extensionList = [ config.nur.repos.rycee.firefox-addons.sidebery ];
 
   cfg = config.textfox;
 in {
@@ -21,6 +22,11 @@ in {
       type = lib.types.str;
       description = "The profile to apply the textfox configuration to";
     };
+    useLegacyExtensions = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "If 'extensions' should be used instead of 'extensions.packages' for extension config";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -28,10 +34,13 @@ in {
       enable = true;
       profiles."${cfg.profile}" = {
         extraConfig = builtins.readFile "${package}/user.js";
-        extensions = [ config.nur.repos.rycee.firefox-addons.sidebery ];
         containersForce = true;
         userChrome = lib.mkBefore (builtins.readFile "${package}/chrome/userChrome.css");
-      };
+      } // (
+        if cfg.useLegacyExtensions
+        then { extensions = extensionList; }
+        else { extensions.packages = extensionList; }
+      );
     };
 
     home.file."${configDir}${cfg.profile}/chrome" = {
