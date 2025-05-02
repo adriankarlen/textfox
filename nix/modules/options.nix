@@ -105,6 +105,12 @@ in {
           description = "Margin used between elements in sidebery.";
         };
       };
+
+      extraConfig = mkOption {
+        type = str;
+        default = "";
+        description = "Extra lines to add to config.css";
+      };
     };
 
     configCss = mkOption {
@@ -130,6 +136,7 @@ in {
           --tf-display-titles: ${if cfg.displayTitles then "flex" else "none"};
           --tf-newtab-logo: "${cfg.newtabLogo}";
         }
+        ${cfg.extraConfig}
       '';
     };
   };
