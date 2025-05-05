@@ -111,6 +111,12 @@ in {
         default = "";
         description = "Extra lines to add to config.css";
       };
+
+      textTransform = mkOption {
+        type = str;
+        default = "none";
+        description = "Text transform to use";
+      }
     };
 
     configCss = mkOption {
@@ -128,6 +134,7 @@ in {
           --tf-border-width: ${cfg.border.width};
           --tf-rounding: ${cfg.border.radius};
           --tf-margin: ${cfg.tabs.vertical.margin};
+          --tf-text-transform: ${cfg.textTransform};
           --tf-display-horizontal-tabs: ${if cfg.tabs.horizontal.enable then "block" else "none"};
           --tf-display-window-controls: ${if cfg.displayWindowControls then "flex" else "none"};
           --tf-display-nav-buttons: ${if cfg.displayNavButtons then "flex" else "none"};
