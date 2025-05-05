@@ -79,3 +79,7 @@ box#vertical-tabs {
 .toolbar-items {
   margin: 3px;
 }
+
+tabs {
+  text-transform: var(--tf-text-transform);
+}
