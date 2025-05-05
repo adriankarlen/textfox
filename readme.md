@@ -251,6 +251,7 @@ border radius it would look like this:
   --tf-border-width: 2px; /* Width of borders */
   --tf-rounding: 0px; /* Border radius used through out the config */
   --tf-margin: 0.8rem; /* Margin used between elements in sidebery */
+  --tf-text-transform: none; /* Text transform to use */
   --tf-display-horizontal-tabs: none; /* If horizontal tabs should be shown, none = hidden, block = shown */
   --tf-display-window-controls: none; /* If the window controls should be shown (won't work with sidebery and hidden horizontal tabs), none = hidden, flex = shown */ 
   --tf-display-nav-buttons: none; /* If the navigation buttons (back, forward) should be shown, none = hidden, flex = shown */
@@ -261,6 +262,7 @@ border radius it would look like this:
   --tf-navbar-margin: 8px 8px 2px; /* navbar margin */
   --tf-navbar-padding: 4px; /* navbar padding */
 }
+
 ```
 
 ### Changing the new tab logo
