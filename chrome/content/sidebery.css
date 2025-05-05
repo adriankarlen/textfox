@@ -128,7 +128,7 @@ Styles for Sidebery extension
   }
 
   .Tab .body {
-    text-transform: lowercase;
+    text-transform: var(--tf-text-transform);
     & .title {
       color: color-mix(in hsl, var(--s-popup-fg) 50%, transparent) !important;
     }

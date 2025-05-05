@@ -29,5 +29,5 @@ findbar {
 }
 
 .findbar-container > checkbox {
-  text-transform: lowercase;
+  text-transform: var(--tf-text-transform);
 }
