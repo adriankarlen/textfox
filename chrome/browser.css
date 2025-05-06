@@ -1,4 +1,4 @@
-.browserContainer {
+.browserContainer, .browser-toolbox-background {
   background: var(--tf-bg);
 }
 
