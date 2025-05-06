@@ -1,5 +1,5 @@
-.browserContainer {
-  background: var(--tf-bg);
+.browserContainer, .browser-toolbox-background {
+  background: var(--tf-bg) !important;
 }
 
 browser {
