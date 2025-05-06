@@ -116,7 +116,7 @@ in {
         type = str;
         default = "none";
         description = "Text transform to use";
-      }
+      };
     };
 
     configCss = mkOption {
