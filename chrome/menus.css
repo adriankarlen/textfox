@@ -17,16 +17,6 @@ slot[part="content"] {
   }
 }
 
-menu,
-menuitem {
-  &:where([_moz-menuactive]:not([disabled="true"])) {
-    background: var(--tab-selected-bgcolor) !important;
-  }
-  &:where([_moz-menuactive="true"][disabled="true"]) {
-    background: var(--tab-hover-background-color) !important;
-  }
-}
-
 .menupopup-arrowscrollbox {
   border-width: var(--border-width) !important;
 }
