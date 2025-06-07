@@ -1,0 +1,6 @@
+{
+  "style": {
+    "chrome": "https://raw.githubusercontent.com/adriankarlen/textfox/main/chrome/userChrome.css",
+    "content": "https://raw.githubusercontent.com/adriankarlen/textfox/main/chrome/userContent.css"
+  }
+}
