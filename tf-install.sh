@@ -1,4 +1,5 @@
 #!/bin/bash
+# textfox installation script
 
 print_logo() {
   cat <<EOF
@@ -84,6 +85,5 @@ tf_install() {
   printf "✓ Installation completed\n"
 }
 
-# clear
 print_logo
 tf_install "$@"
