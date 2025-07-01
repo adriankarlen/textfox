@@ -39,3 +39,10 @@ browser {
     }
   }
 }
+
+#browser:not(.browser-toolbox-background) {
+  :root[lwtheme] & {
+    background-color: var(--lwt-accent-color) !important;
+    background-image: var(--lwt-accent-color) !important;
+  }
+}

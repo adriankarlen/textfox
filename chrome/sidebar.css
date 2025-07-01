@@ -81,3 +81,9 @@
     }
   }
 }
+
+/*Floorp sidebar fix*/
+#sidebar-select-box {
+    background-color: var(--lwt-accent-color) !important;
+    background-image: var(--lwt-accent-color) !important;
+}
