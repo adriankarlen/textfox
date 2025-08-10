@@ -6,16 +6,12 @@ let
     if pkgs.stdenv.hostPlatform.isDarwin
     then "Library/Application\ Support/Firefox/Profiles/"
     else ".mozilla/firefox/";
-  extensionList = [ pkgs.nur.repos.rycee.firefox-addons.sidebery ];
+  extensionList = [ inputs.firefox-addons.packages.${system}.sidebery ];
 
   cfg = config.textfox;
 in {
 
-  imports = [
-    inputs.nur.modules.homeManager.default
-
-    ./options.nix
-  ];
+  imports = [ ./options.nix ];
 
   options.textfox = {
     profile = lib.mkOption {
