@@ -20,7 +20,7 @@ in {
     };
     useLegacyExtensions = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
       description = "If 'extensions' should be used instead of 'extensions.packages' for extension config";
     };
   };
