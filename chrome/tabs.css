@@ -4,6 +4,7 @@ box#vertical-tabs {
   border-radius: var(--tf-rounding);
   padding: 8px 0px !important;
   transition: border-color var(--tf-border-transition);
+  min-width: 51px;
   &:hover,
   &:focus {
     border-color: var(--tf-accent) !important;
@@ -13,7 +14,7 @@ box#vertical-tabs {
     content: "tabs";
     background-color: var(--tf-bg);
     position: absolute;
-    margin: -1.75rem .75rem;
+    margin: -1.75rem .4rem;
     padding: 0 2px;
   }
   &:hover::before {
