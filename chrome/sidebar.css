@@ -15,6 +15,7 @@
     position: absolute;
     margin: -0.85rem 0.85rem;
     padding: 0 4px;
+    z-index: 9999999;
   }
   &:hover::before {
     color: var(--tf-accent);
