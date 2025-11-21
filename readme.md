@@ -287,6 +287,9 @@ Here are some example changes that you can do to achieve different looks.
 }
 ```
 
+#### Do you have a banger recipe?
+Feel free to open a PR and add it here!
+
 ## Acknowledgements
 
 [Naezr](https://github.com/Naezr) - Icon logic and some sideberry logic.
