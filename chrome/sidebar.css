@@ -9,6 +9,7 @@
   }
   &::before {
     display: var(--tf-display-titles);
+    z-index: 2;
     content: "tabs";
     color: var(--lwt-text-color);
     background-color: var(--tf-bg);
