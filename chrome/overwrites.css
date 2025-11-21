@@ -5,6 +5,7 @@
     --toolbar-field-background-color
   ) !important;
   --toolbox-non-lwt-bgcolor: var(--tf-bg) !important;
+  --toolbar-field-background-color: var(--tf-bg) !important;
 
   /* borders */
   --border-width: var(--tf-border-width) !important;
