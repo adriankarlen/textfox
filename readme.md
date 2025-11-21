@@ -179,7 +179,6 @@ All configuration options are optional and can be set as this example shows (rea
           transition = "1.0s ease";
           radius = "3px";
         };
-        displayHorizontalTabs = true;
         displayWindowControls = true;
         displayNavButtons = true;
         displayUrlbarIcons = true;
@@ -191,9 +190,25 @@ All configuration options are optional and can be set as this example shows (rea
           size = "15px";
           accent = "#654321";
         };
-        sidebery = {
-          margin = "1.0rem";
+        tabs = {
+          horizontal.enable = true;
+          vertical.enable = true;
+          vertical.margin = "1.0rem";
         };
+        navbar = {
+          margin = "8px 8px 2px";
+          padding = "4px";
+        };
+        bookmarks = {
+          alignment = "left";
+        };
+        icons = {
+          toolbar.extensions.enable = true;
+          context.extensions.enable = true;
+          context.firefox.enable = true;
+        };
+        textTransform = "uppercase";
+        extraConfig = "/* custom css here */";
       };
   };
 ```
@@ -253,6 +268,7 @@ The theme ships with a `defaults.css`, this file can be overridden by creating a
   --tf-newtab-logo: "   __            __  ____          \A   / /____  _  __/ /_/ __/___  _  __\A  / __/ _ \\| |/_/ __/ /_/ __ \\| |/_/\A / /_/  __/>  </ /_/ __/ /_/ />  <  \A \\__/\\___/_/|_|\\__/_/  \\____/_/|_|  ";
   --tf-navbar-margin: 8px 8px 2px; /* navbar margin */
   --tf-navbar-padding: 4px; /* navbar padding */
+  --tf-bookmarks-alignment: center; /* alignment of bookmarks in the bookmarks toolbar (if you have many bookmarks, left is recommended) */
 }
 
 ```
@@ -284,6 +300,14 @@ Here are some example changes that you can do to achieve different looks.
 /* path: chrome/config.css */
 :root {
   --tf-rounding: 4px;
+}
+```
+
+#### Align bookmarks to the left
+```css
+/* path: chrome/config.css */
+:root {
+  --tf-bookmarks-alignment: left;
 }
 ```
 
