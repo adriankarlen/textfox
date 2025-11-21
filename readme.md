@@ -1,4 +1,4 @@
- 
+
 ```
    __            __  ____          
   / /____  _  __/ /_/ __/___  _  __
@@ -33,7 +33,7 @@ _a port of spotify tui to firefox_
    instructions.
 
 > [!IMPORTANT]
-> This script automates file writes, use with caution. 
+> This script automates file writes, use with caution.
 
 > [!NOTE]
 > The installation script copies to contents of the repos `chrome` directory to
@@ -97,7 +97,7 @@ To enable the module, add the repo as a flake input, import the module, and enab
               }
            ];
         };
-     } 
+     }
   }
 ```
 ```nix
@@ -186,7 +186,7 @@ All configuration options are optional and can be set as this example shows (rea
         displaySidebarTools = false;
         displayTitles = false;
         newtabLogo = "   __            __  ____          \A   / /____  _  __/ /_/ __/___  _  __\A  / __/ _ \\| |/_/ __/ /_/ __ \\| |/_/\A / /_/  __/>  </ /_/ __/ /_/ />  <  \A \\__/\\___/_/|_|\\__/_/  \\____/_/|_|  ";
-        font = { 
+        font = {
           family = "Fira Code";
           size = "15px";
           accent = "#654321";
@@ -202,7 +202,7 @@ All configuration options are optional and can be set as this example shows (rea
 ### Sidebery
 
 Sidebery css is being set from within `content/sidebery` (applied as content to
-the sidebery url). If you have any prexisting css set from within the sidebery
+the sidebery url). If you have any pre-existing css set from within the sidebery
 settings, they might clash or make it so that the sidebery style does not match
 the example.
 
@@ -228,16 +228,8 @@ the same settings are used (these can be set in about:config).
 | `shyfox.enable.context.menu.icons` | Many context menu items get icons | No icons in context menus |
 
 ### CSS configurations
-The theme ships with a `defaults.css`, this file can be overriden by creating a
-`config.css` inside the chrome directory. For instance if I'd want to change the
-border radius it would look like this:
-
-```css
-/* path: chrome/config.css */
-:root {
-  --tf-rounding: 4px;
-}
-```
+The theme ships with a `defaults.css`, this file can be overridden by creating a
+`config.css` inside the chrome directory.
 
 #### Defaults
 ```css
@@ -274,9 +266,30 @@ to create the current logo.
 
 Wanna hide the logo? Simply pass an empty string as the logo.
 
+### Recipes
+
+Here are some example changes that you can do to achieve different looks.
+
+#### Swap positions of tabs and window controls when using horizontal tabs
+```css
+/* path: chrome/config.css */
+:root {
+  --tf-display-horizontal-tabs: inline-flex;
+  --tf-display-window-controls: flex;
+}
+```
+
+#### Rounded borders
+```css
+/* path: chrome/config.css */
+:root {
+  --tf-rounding: 4px;
+}
+```
+
+#### Do you have a banger recipe?
+Feel free to open a PR and add it here!
+
 ## Acknowledgements
 
 [Naezr](https://github.com/Naezr) - Icon logic and some sideberry logic.
-
-изз - starting working on a similar project in the glazewm discord, prompted me
-to get started on the work.
