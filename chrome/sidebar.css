@@ -9,6 +9,8 @@
   }
   &::before {
     display: var(--tf-display-titles);
+    z-index: 1;
+    font-size: var(--tf-font-size);
     content: "tabs";
     color: var(--lwt-text-color);
     background-color: var(--tf-bg);
