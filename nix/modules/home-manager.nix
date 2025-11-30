@@ -33,9 +33,12 @@ in {
         containersForce = true;
         userChrome = lib.mkBefore (builtins.readFile "${package}/chrome/userChrome.css");
       } // (
-        if cfg.useLegacyExtensions
-        then { extensions = extensionList; }
-        else { extensions.packages = extensionList; }
+        if cfg.config.tabs.vertical.enable
+        then 
+          (if cfg.useLegacyExtensions
+          then { extensions = extensionList; }
+          else { extensions.packages = extensionList; })
+        else {}
       );
     };
 
