@@ -44,7 +44,7 @@ _a port of spotify tui to firefox_
 
 1. Download the files
 2. Go to `about:profiles`
-3. Find your profile -- ( _„This is the profile in use and it cannot be deleted.”_ )
+3. Find the names of target profiles (ex: `Profile: Default`)
 4. Open the profile's root directory
 5. Move the files chrome directory and user.js there
 6. Restart Firefox
@@ -108,7 +108,8 @@ imports = [ inputs.textfox.homeManagerModules.default ];
 
 textfox = {
     enable = true;
-    profile = "firefox profile name here";
+    # Replace with the names of profiles, defined in home-manager, or find existing ones in `about:profiles`
+    profile = ["profile_1" "profile_2"];
     config = {
         # Optional config
     };
@@ -152,7 +153,8 @@ textfox = {
 
   textfox = {
       enable = true;
-      profile = "firefox profile name here";
+      # Replace with the names of profiles, defined in home-manager, or find existing ones in `about:profiles`
+      profile = ["profile_1" "profile_2"];
       config = {
           # Optional config
       };
@@ -168,7 +170,8 @@ All configuration options are optional and can be set as this example shows (rea
 
   textfox = {
       enable = true;
-      profile = "firefox profile name here";
+      # Replace with the names of profiles, defined in home-manager, or find existing ones in `about:profiles`
+      profile = ["profile_1" "profile_2"];
       config = {
         background = {
           color = "#123456";
