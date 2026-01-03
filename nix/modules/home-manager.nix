@@ -11,12 +11,23 @@ let
   cfg = config.textfox;
 in {
 
-  imports = [ ./options.nix ];
+  imports = [ 
+    ./options.nix
+    (lib.mkChangedOptionModule 
+      [ "textfox" "profile" ] 
+      [ "textfox" "profiles" ]
+      (config: 
+        let profile = lib.getAttrFromPath [ "textfox" "profile" ] config;
+        in [ profile ]
+      )
+    )
+  ];
 
   options.textfox = {
-    profile = lib.mkOption {
-      type = lib.types.str;
-      description = "The profile to apply the textfox configuration to";
+    profiles = lib.mkOption {
+      type = with lib.types; listOf str;
+      default = [ ];
+      description = "List of Firefox profiles to apply the textfox configuration to";
     };
     useLegacyExtensions = lib.mkOption {
       type = lib.types.bool;
@@ -28,27 +39,32 @@ in {
   config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
-      profiles."${cfg.profile}" = {
-        extraConfig = builtins.readFile "${package}/user.js";
-        containersForce = true;
-        userChrome = lib.mkBefore (builtins.readFile "${package}/chrome/userChrome.css");
-      } // (
-        if cfg.useLegacyExtensions
-        then { extensions = extensionList; }
-        else { extensions.packages = extensionList; }
-      );
+      profiles = lib.mkMerge (map (profile: {
+        "${profile}" = {
+          extraConfig = builtins.readFile "${package}/user.js";
+          containersForce = true;
+          userChrome = lib.mkBefore (builtins.readFile "${package}/chrome/userChrome.css");
+        }
+        // (
+          if cfg.useLegacyExtensions
+          then { extensions = extensionList; }
+          else { extensions.packages = extensionList; }
+        );
+      }) cfg.profiles);
     };
 
-    home.file."${configDir}${cfg.profile}/chrome" = {
-      source = pkgs.lib.cleanSourceWith {
-        src = "${package}/chrome";
-        filter = path: type:
-          !(type == "regular" && baseNameOf path == "userChrome.css");
+    home.file = lib.mkMerge (map (profile: {
+      "${configDir}${profile}/chrome" = {
+        source = pkgs.lib.cleanSourceWith {
+          src = "${package}/chrome";
+          filter = path: type:
+            !(type == "regular" && baseNameOf path == "userChrome.css");
+        };
+        recursive = true;
       };
-      recursive = true;
-    };
-    home.file."${configDir}${cfg.profile}/chrome/config.css" = {
-      text = cfg.configCss;
-    };
+      "${configDir}${profile}/chrome/config.css" = {
+        text = cfg.configCss;
+      };
+    }) cfg.profiles);
   };
 }
