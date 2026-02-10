@@ -109,7 +109,7 @@ imports = [ inputs.textfox.homeManagerModules.default ];
 textfox = {
     enable = true;
     # Replace with the names of profiles, defined in home-manager, or find existing ones in `about:profiles`
-    profile = ["profile_1" "profile_2"];
+    profiles = ["profile_1" "profile_2"];
     config = {
         # Optional config
     };
@@ -154,7 +154,7 @@ textfox = {
   textfox = {
       enable = true;
       # Replace with the names of profiles, defined in home-manager, or find existing ones in `about:profiles`
-      profile = ["profile_1" "profile_2"];
+      profiles = ["profile_1" "profile_2"];
       config = {
           # Optional config
       };
@@ -171,7 +171,7 @@ All configuration options are optional and can be set as this example shows (rea
   textfox = {
       enable = true;
       # Replace with the names of profiles, defined in home-manager, or find existing ones in `about:profiles`
-      profile = ["profile_1" "profile_2"];
+      profiles = ["profile_1" "profile_2"];
       config = {
         background = {
           color = "#123456";
