@@ -29,11 +29,6 @@ in {
       default = [ ];
       description = "List of Firefox profiles to apply the textfox configuration to";
     };
-    useLegacyExtensions = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "If 'extensions' should be used instead of 'extensions.packages' for extension config";
-    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -42,14 +37,10 @@ in {
       profiles = lib.mkMerge (map (profile: {
         "${profile}" = {
           extraConfig = builtins.readFile "${package}/user.js";
+          extensions.packages = extensionList;
           containersForce = true;
           userChrome = lib.mkBefore (builtins.readFile "${package}/chrome/userChrome.css");
-        }
-        // (
-          if cfg.useLegacyExtensions
-          then { extensions = extensionList; }
-          else { extensions.packages = extensionList; }
-        );
+        };
       }) cfg.profiles);
     };
 
