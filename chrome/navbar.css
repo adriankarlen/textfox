@@ -99,7 +99,7 @@
     content: "bookmarks";
     background-color: var(--tf-bg);
     position: absolute;
-    margin: -1.25rem .4rem;
+    margin: -1.25rem 0.4rem;
     padding: 0 2px;
   }
   &:hover::before {
@@ -109,7 +109,7 @@
 
 #PlacesToolbarItems {
   display: flex;
-  justify-content: center;
+  justify-content: var(--tf-bookmarks-alignment);
 }
 
 toolbarbutton.bookmark-item:not(.subviewbutton) {
@@ -130,7 +130,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 
 @media (-moz-bool-pref: "sidebar.revamp") {
   #nav-bar::before {
-    margin: -1.35rem .75rem;
+    margin: -1.35rem 0.75rem;
     left: 0;
   }
 
