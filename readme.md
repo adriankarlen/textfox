@@ -320,4 +320,4 @@ Feel free to open a PR and add it here!
 
 ## Acknowledgements
 
-[Naezr](https://github.com/Naezr) - Icon logic and some sideberry logic.
+[Naezr](https://github.com/Naezr) - Icon logic and some sidebery logic.
