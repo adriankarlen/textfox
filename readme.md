@@ -196,7 +196,8 @@ All configuration options are optional and can be set as this example shows (rea
         tabs = {
           horizontal.enable = true;
           vertical.enable = true;
-          vertical.margin = "1.0rem";
+          vertical.sidebery.enable = true;
+          vertical.sidebery.margin = "1.0rem";
         };
         navbar = {
           margin = "8px 8px 2px";
@@ -319,4 +320,4 @@ Feel free to open a PR and add it here!
 
 ## Acknowledgements
 
-[Naezr](https://github.com/Naezr) - Icon logic and some sideberry logic.
+[Naezr](https://github.com/Naezr) - Icon logic and some sidebery logic.

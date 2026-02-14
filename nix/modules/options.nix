@@ -13,6 +13,7 @@ in {
   imports = [
     (mkRenamedOptionModule ["textfox" "config" "displayHorizontalTabs"] ["textfox" "config" "tabs" "horizontal" "enable"])
     (mkRenamedOptionModule ["textfox" "config" "sidebery" "margin"] ["textfox" "config" "tabs" "vertical" "margin"])
+    (mkRenamedOptionModule ["textfox" "config" "tabs" "vertical" "margin"] ["textfox" "config" "tabs" "vertical" "sidebery" "margin"])
   ];
 
   options.textfox = {
@@ -99,7 +100,8 @@ in {
       tabs = {
         horizontal.enable = mkEnableOption "display of horizontal tabs.";
         vertical.enable = mkEnableOption "display of vertical tabs." // {default = true;};
-        vertical.margin = mkOption {
+        vertical.sidebery.enable = mkEnableOption "automatic installation of Sidebery extension." // {default = true;};
+        vertical.sidebery.margin = mkOption {
           type = str;
           default = "0.8rem";
           description = "Margin used between elements in sidebery.";
