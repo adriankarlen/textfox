@@ -196,6 +196,7 @@ All configuration options are optional and can be set as this example shows (rea
         tabs = {
           horizontal.enable = true;
           vertical.enable = true;
+          vertical.installSidebery = true;
           vertical.margin = "1.0rem";
         };
         navbar = {
