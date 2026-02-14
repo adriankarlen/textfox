@@ -6,7 +6,7 @@ let
     if pkgs.stdenv.hostPlatform.isDarwin
     then "Library/Application\ Support/Firefox/Profiles/"
     else ".mozilla/firefox/";
-  extensionList = [ inputs.firefox-addons.packages.${system}.sidebery ];
+  extensionList = lib.optionals cfg.config.tabs.vertical.installSidebery [ inputs.firefox-addons.packages.${system}.sidebery ];
 
   cfg = config.textfox;
 in {

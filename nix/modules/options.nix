@@ -99,6 +99,7 @@ in {
       tabs = {
         horizontal.enable = mkEnableOption "display of horizontal tabs.";
         vertical.enable = mkEnableOption "display of vertical tabs." // {default = true;};
+        vertical.installSidebery = mkEnableOption "automatic installation of Sidebery extension." // {default = true;};
         vertical.margin = mkOption {
           type = str;
           default = "0.8rem";
