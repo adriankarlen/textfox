@@ -218,6 +218,34 @@ All configuration options are optional and can be set as this example shows (rea
 ```
 </details>
 
+<details><summary>Usage with other browsers:</summary>
+
+The Nix flake exposes a package, `wrapTextfox`, that wraps certain compatible browsers with the autoscript, so that the same options described above apply to other browsers.
+
+For example:
+```nix
+  # home.nix
+  imports = [ inputs.textfox.homeManagerModules.default ];
+
+  textfox = {
+    enable = true;
+    profiles = ["profile_1" "profile_2"];
+  };
+
+  programs.floorp =
+    let
+      wrapTextfox = pkgs.callPackage "${inputs.textfox}/nix/pkgs/wrapTextfox.nix" { };
+    in
+      {
+        enable = true;
+
+        package = wrapTextfox pkgs.floorp-bin-unwrapped { pname = "floorp"; };
+  
+        # other browser-specific configuration
+      };
+```
+</details>
+
 ### Sidebery
 
 Sidebery css is being set from within `content/sidebery` (applied as content to
