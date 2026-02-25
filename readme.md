@@ -220,7 +220,7 @@ All configuration options are optional and can be set as this example shows (rea
 
 <details><summary>Usage with other browsers:</summary>
 
-The Nix flake exposes a package, `wrapTextfox`, that wraps certain compatible browsers with the autoscript, so that the above-.
+The Nix flake exposes a package, `wrapTextfox`, that wraps certain compatible browsers with the autoscript, so that the same options described above apply to other browsers.
 
 For example:
 ```nix
