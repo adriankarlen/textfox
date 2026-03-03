@@ -15,4 +15,4 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@main
       - name: Check Nix formatting with nixfmt
         run: |
-          nix run nixpkgs#nixfmt -- --check .
+          nix run nixpkgs#nixfmt-tree
