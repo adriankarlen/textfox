@@ -2,28 +2,41 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   inherit (lib.options) mkOption mkEnableOption;
   inherit (lib.modules) mkRenamedOptionModule;
   inherit (lib.strings) replaceStrings;
   inherit (lib.types) bool str;
 
   cfg = config.textfox.config;
-in {
+in
+{
   imports = [
-    (mkRenamedOptionModule ["textfox" "config" "displayHorizontalTabs"] ["textfox" "config" "tabs" "horizontal" "enable"])
-    (mkRenamedOptionModule ["textfox" "config" "sidebery" "margin"] ["textfox" "config" "tabs" "vertical" "margin"])
-    (mkRenamedOptionModule ["textfox" "config" "tabs" "vertical" "margin"] ["textfox" "config" "tabs" "vertical" "sidebery" "margin"])
+    (mkRenamedOptionModule
+      [ "textfox" "config" "displayHorizontalTabs" ]
+      [ "textfox" "config" "tabs" "horizontal" "enable" ]
+    )
+    (mkRenamedOptionModule
+      [ "textfox" "config" "sidebery" "margin" ]
+      [ "textfox" "config" "tabs" "vertical" "margin" ]
+    )
+    (mkRenamedOptionModule
+      [ "textfox" "config" "tabs" "vertical" "margin" ]
+      [ "textfox" "config" "tabs" "vertical" "sidebery" "margin" ]
+    )
   ];
 
   options.textfox = {
     enable = mkEnableOption "Textfox.";
-          
+
     config = {
       displayWindowControls = mkEnableOption "window controls.";
       displayNavButtons = mkEnableOption "back and forward navigation buttons in the Firefox UI.";
       displayUrlbarIcons = mkEnableOption "icons inside url bar.";
-      displaySidebarTools = mkEnableOption "sidebar tools section." // {default = true;};
+      displaySidebarTools = mkEnableOption "sidebar tools section." // {
+        default = true;
+      };
 
       displayTitles = mkOption {
         type = bool;
@@ -40,7 +53,7 @@ in {
           / /_/  __/>  </ /_/ __/ /_/ />  <
           \__/\___/_/|_|\__/_/  \____/_/|_|
         '';
-        apply = p: replaceStrings ["\n" "\\"] ["\\A" "\\\\"] p;
+        apply = p: replaceStrings [ "\n" "\\" ] [ "\\A" "\\\\" ] p;
         description = "ASCII logo used for new tab page";
       };
 
@@ -99,8 +112,12 @@ in {
 
       tabs = {
         horizontal.enable = mkEnableOption "display of horizontal tabs.";
-        vertical.enable = mkEnableOption "display of vertical tabs." // {default = true;};
-        vertical.sidebery.enable = mkEnableOption "automatic installation of Sidebery extension." // {default = true;};
+        vertical.enable = mkEnableOption "display of vertical tabs." // {
+          default = true;
+        };
+        vertical.sidebery.enable = mkEnableOption "automatic installation of Sidebery extension." // {
+          default = true;
+        };
         vertical.sidebery.margin = mkOption {
           type = str;
           default = "0.8rem";
@@ -172,4 +189,3 @@ in {
     };
   };
 }
-

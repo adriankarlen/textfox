@@ -1,4 +1,4 @@
-{stdenv, fetchFromGithub, ...}:
+{ stdenv, fetchFromGithub, ... }:
 
 stdenv.mkDerivation {
   pname = "textfox";
