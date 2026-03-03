@@ -1,0 +1,18 @@
+name: Check Nix Formatting
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  nix-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - name: Check Nix formatting with nixfmt
+        run: |
+          nix run nixpkgs#nixfmt -- --check .
