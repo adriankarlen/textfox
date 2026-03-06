@@ -1,5 +1,6 @@
-menupopup,
-panel {
+:is(menupopup,
+    panel)
+:not(#autoscroller) {
   --panel-background: var(--tf-bg) !important;
   --panel-border-radius: var(--tf-rounding) !important;
   --panel-border-color: var(--tf-accent) !important;
