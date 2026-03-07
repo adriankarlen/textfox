@@ -315,6 +315,49 @@ Here are some example changes that you can do to achieve different looks.
 }
 ```
 
+#### Adjust title margins
+
+The titles (e.g. "tabs", "navbar", "main") are `::before` pseudo-elements positioned on the border of each container. Override the margin per selector to reposition them.
+
+```css
+/* path: chrome/config.css */
+
+/* main content area title */
+#tabbrowser-tabbox::before {
+  margin: -1.75rem 0rem !important;
+}
+
+/* navbar title */
+#nav-bar::before {
+  margin: -16px 8px !important;
+}
+
+/* bookmarks bar title */
+#PersonalToolbar::before {
+  margin: -1.25rem 0.4rem !important;
+}
+
+/* sidebar title */
+#sidebar-box::before {
+  margin: -0.85rem 0.85rem !important;
+}
+
+/* vertical tabs title */
+box#vertical-tabs::before {
+  margin: -1.75rem .4rem !important;
+}
+
+/* horizontal tabs title */
+#TabsToolbar::before {
+  margin: -1rem .75rem !important;
+}
+
+/* findbar title */
+findbar::before {
+  margin: -1.75rem .75rem !important;
+}
+```
+
 #### Do you have a banger recipe?
 Feel free to open a PR and add it here!
 
