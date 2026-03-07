@@ -20,10 +20,6 @@ _a port of spotify tui to firefox_
 > `textfox` tries to not hard code any colors, [Firefox Color extension](https://addons.mozilla.org/en-US/firefox/addon/firefox-color/) is the
 > recommended approach to coloring Firefox with `textfox`.
 
-## Prequisites
-
-- Sidebery (optional)
-
 ## Installation
 
 ### Installation script
@@ -218,24 +214,6 @@ All configuration options are optional and can be set as this example shows (rea
 ```
 </details>
 
-### Sidebery
-
-Sidebery css is being set from within `content/sidebery` (applied as content to
-the sidebery url). If you have any pre-existing css set from within the sidebery
-settings, they might clash or make it so that the sidebery style does not match
-the example.
-
-#### Settings
-
-The theme was made using a reset sidebery config, so there should not be
-anything crazy needed here, notable settings being set is using the **plain**
-theme and **firefox** color scheme. If you want to you can import the sidebery
-settings provided.
-
-> [!IMPORTANT]
-> **Importing sidebery settings overwrites your current settings, do this at
-> your own risk.**
-
 ## Customization
 
 The icon configuration utilizes code that is originally from ShyFox, therefore
@@ -261,7 +239,6 @@ The theme ships with a `defaults.css`, this file can be overridden by creating a
   --tf-border-transition: 0.2s ease; /* Smooth color transitions for borders */
   --tf-border-width: 2px; /* Width of borders */
   --tf-rounding: 0px; /* Border radius used through out the config */
-  --tf-margin: 0.8rem; /* Margin used between elements in sidebery */
   --tf-text-transform: none; /* Text transform to use */
   --tf-display-horizontal-tabs: none; /* If horizontal tabs should be shown, none = hidden, block = shown */
   --tf-display-window-controls: none; /* If the window controls should be shown (won't work with sidebery and hidden horizontal tabs), none = hidden, flex = shown */ 
@@ -321,8 +298,9 @@ The titles (e.g. "tabs", "navbar", "main") are `::before` pseudo-elements positi
 
 ```css
 /* path: chrome/config.css */
+/* These are just the default values, change them to fit your needs */
 
-/* main content area title */
+/* main title */
 #tabbrowser-tabbox::before {
   margin: -1.75rem 0rem !important;
 }
@@ -332,12 +310,17 @@ The titles (e.g. "tabs", "navbar", "main") are `::before` pseudo-elements positi
   margin: -16px 8px !important;
 }
 
-/* bookmarks bar title */
+/* bookmarks title */
 #PersonalToolbar::before {
   margin: -1.25rem 0.4rem !important;
 }
 
-/* sidebar title */
+/* tools title */
+.buttons-wrapper::before {
+  margin: -0.85rem 0.85rem !important;
+}
+
+/* tool title */
 #sidebar-box::before {
   margin: -0.85rem 0.85rem !important;
 }
