@@ -19,6 +19,7 @@ browser {
     }
   }
   &::before {
+    z-index: 1;
     display: var(--tf-display-titles);
     content: "main";
     background-color: var(--tf-bg);
