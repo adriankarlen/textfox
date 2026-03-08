@@ -51,19 +51,6 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages =
       let
-        policies = {
-          ExtensionSettings =
-            optionalAttrs (cfg.config.tabs.vertical.enable && cfg.config.tabs.vertical.sidebery.enable)
-              {
-                # Declarative installation of sidebery
-                "{3c078156-979c-498b-8990-85f7987dd929}" = {
-                  install_url = "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi";
-                  installation_mode = "force_installed";
-                  default_area = "menupanel";
-                };
-              };
-        };
-
         preferences =
           let
             icons = config.textfox.config.icons;
