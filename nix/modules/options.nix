@@ -6,6 +6,7 @@
 let
   inherit (lib.options) mkOption mkEnableOption;
   inherit (lib.modules) mkRenamedOptionModule;
+  inherit (lib.modules) mkRemovedOptionModule;
   inherit (lib.strings) replaceStrings;
   inherit (lib.types) bool str;
 
@@ -17,14 +18,13 @@ in
       [ "textfox" "config" "displayHorizontalTabs" ]
       [ "textfox" "config" "tabs" "horizontal" "enable" ]
     )
-    (mkRenamedOptionModule
-      [ "textfox" "config" "sidebery" "margin" ]
-      [ "textfox" "config" "tabs" "vertical" "margin" ]
-    )
-    (mkRenamedOptionModule
-      [ "textfox" "config" "tabs" "vertical" "margin" ]
-      [ "textfox" "config" "tabs" "vertical" "sidebery" "margin" ]
-    )
+    (mkRemovedOptionModule [
+      "textfox"
+      "config"
+      "tabs"
+      "vertical"
+      "sidebery"
+    ] "Sidebery support was dropped in textfox.")
   ];
 
   options.textfox = {
@@ -115,14 +115,6 @@ in
         vertical.enable = mkEnableOption "display of vertical tabs." // {
           default = true;
         };
-        vertical.sidebery.enable = mkEnableOption "automatic installation of Sidebery extension." // {
-          default = true;
-        };
-        vertical.sidebery.margin = mkOption {
-          type = str;
-          default = "0.8rem";
-          description = "Margin used between elements in sidebery.";
-        };
       };
 
       extraConfig = mkOption {
@@ -171,7 +163,6 @@ in
           --tf-border-transition: ${cfg.border.transition};
           --tf-border-width: ${cfg.border.width};
           --tf-rounding: ${cfg.border.radius};
-          --tf-margin: ${cfg.tabs.vertical.margin};
           --tf-text-transform: ${cfg.textTransform};
           --tf-display-horizontal-tabs: ${if cfg.tabs.horizontal.enable then "block" else "none"};
           --tf-display-window-controls: ${if cfg.displayWindowControls then "flex" else "none"};

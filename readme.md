@@ -57,7 +57,7 @@ _a port of spotify tui to firefox_
 
 ### Nix
 
-This repo includes a Nix flake that exposes a home-manager module that installs textfox and sidebery.
+This repo includes a Nix flake that exposes a home-manager module that installs textfox.
 
 To enable the module, add the repo as a flake input, import the module, and enable textfox.
 
@@ -192,8 +192,6 @@ All configuration options are optional and can be set as this example shows (rea
         tabs = {
           horizontal.enable = true;
           vertical.enable = true;
-          vertical.sidebery.enable = true;
-          vertical.sidebery.margin = "1.0rem";
         };
         navbar = {
           margin = "8px 8px 2px";

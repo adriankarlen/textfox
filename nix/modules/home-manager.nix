@@ -13,9 +13,6 @@ let
       "Library/Application\ Support/Firefox/Profiles/"
     else
       ".mozilla/firefox/";
-  extensionList = lib.optionals cfg.config.tabs.vertical.sidebery.enable [
-    inputs.firefox-addons.packages.${system}.sidebery
-  ];
 
   cfg = config.textfox;
 in
@@ -48,7 +45,6 @@ in
         map (profile: {
           "${profile}" = {
             extraConfig = builtins.readFile "${package}/user.js";
-            extensions.packages = extensionList;
             containersForce = true;
             userChrome = lib.mkBefore (builtins.readFile "${package}/chrome/userChrome.css");
           };

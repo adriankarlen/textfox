@@ -45,7 +45,6 @@ let
         cat "$extraUserChromePath" >> "$out/userChrome.css"
 
         ### USERCONTENT
-        cat "$src/content/sidebery.css" >> "$out/userContent.css"
         cat "$src/content/newtab.css" >> "$out/userContent.css"
         cat "$src/content/about.css" >> "$out/userContent.css"
 
