@@ -212,6 +212,24 @@ All configuration options are optional and can be set as this example shows (rea
 ```
 </details>
 
+## Uninstallation
+
+### Uninstallation script
+
+1. Inside the cloned repo run `sh tf-uninstall.sh` and follow the script
+   instructions.
+
+> [!IMPORTANT]
+> This script automates file deletions, use with caution.
+
+### Manual
+
+1. Go to `about:profiles`
+2. Open the root directory of the profile you want to uninstall textfox from
+3. Delete the `chrome` directory
+4. If you installed `user.js`, delete that file as well
+5. Restart Firefox
+
 ## Customization
 
 The icon configuration utilizes code that is originally from ShyFox, therefore
