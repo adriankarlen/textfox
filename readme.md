@@ -212,6 +212,34 @@ All configuration options are optional and can be set as this example shows (rea
 ```
 </details>
 
+## Uninstallation
+
+### Uninstall script
+
+1. Inside the cloned repo run `sh tf-uninstall.sh` and follow the script
+   instructions.
+
+> [!IMPORTANT]
+> This script automates file removal, use with caution.
+
+> [!NOTE]
+> The uninstall script will offer to restore the most recent backup created by
+> the install script (e.g. `chrome-YYYYMMDD_HHMMSS.bak`) if one is found in
+> your Firefox profile directory.
+
+### Manual
+
+1. Go to `about:profiles`
+2. Open the root directory of the profile textfox was installed to
+3. Delete the `chrome` directory
+4. Delete `user.js` (only if it was placed there by textfox)
+5. Restart Firefox
+
+> [!NOTE]
+> If you had a previous `chrome` directory before installing textfox, the
+> install script backed it up as `chrome-YYYYMMDD_HHMMSS.bak`. You can restore
+> it by renaming it back to `chrome`.
+
 ## Customization
 
 The icon configuration utilizes code that is originally from ShyFox, therefore
