@@ -10,7 +10,7 @@ let
   package = inputs.self.packages.${system}.default;
   configDir =
     if pkgs.stdenv.hostPlatform.isDarwin then
-      "Library/Application\ Support/Firefox/Profiles/"
+      "Library/Application Support/Firefox/Profiles/"
     else
       ".mozilla/firefox/";
 
