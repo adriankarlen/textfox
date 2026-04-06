@@ -1,28 +1,81 @@
 {
   lib,
   wrapFirefox,
-  runCommandLocal,
-}:
-browser:
-{
-  configCss ? "",
-  extraUserChrome ? "",
-  extraUserContent ? "",
-  ...
-}@args:
-let
+  runCommandLocal
+}: 
+  browser: { 
+    configCss ? "",
+    extraUserChrome ? "",
+    extraUserContent ? "",
+    ...
+  } @ args: let
 
-  textfoxChrome =
-    runCommandLocal "textfox-chrome"
-      {
-        inherit configCss extraUserChrome extraUserContent;
-        passAsFile = [
-          "configCss"
-          "extraUserChrome"
-          "extraUserContent"
-        ];
+    textfoxChrome = runCommandLocal "textfox-chrome" {
+      inherit configCss extraUserChrome extraUserContent;
+      passAsFile = ["configCss" "extraUserChrome" "extraUserContent"];
 
-        src = ./../../chrome;
+      src = ./../../chrome;
+    } ''
+      mkdir -p "$out"
+      cp -r "$src/icons" "$out/icons"
+
+      ### USERCHROME
+      cat "$src/overwrites.css" >> "$out/userChrome.css"
+      cat "$src/userChrome.css" >> "$out/userChrome.css"
+      cat "$src/sidebar.css" >> "$out/userChrome.css"
+      cat "$src/browser.css" >> "$out/userChrome.css"
+      cat "$src/findbar.css" >> "$out/userChrome.css"
+      cat "$src/navbar.css" >> "$out/userChrome.css"
+      cat "$src/urlbar.css" >> "$out/userChrome.css"
+      sed "s|./icons|$out/icons|g" "$src/icons.css" >> "$out/userChrome.css"
+      cat "$src/menus.css" >> "$out/userChrome.css"
+      cat "$src/tabs.css" >> "$out/userChrome.css"
+
+      cat "$src/defaults.css" >> "$out/userChrome.css"
+      cat "$configCssPath" >> "$out/userChrome.css"
+      cat "$extraUserChromePath" >> "$out/userChrome.css"
+
+      ### USERCONTENT
+      cat "$src/content/sidebery.css" >> "$out/userContent.css"
+      cat "$src/content/newtab.css" >> "$out/userContent.css"
+      cat "$src/content/about.css" >> "$out/userContent.css"
+
+      cat "$src/defaults.css" >> "$out/userContent.css"
+      cat "$configCssPath" >> "$out/userContent.css"
+      cat "$extraUserContentPath" >> "$out/userContent.css"
+    '';
+
+    configScript = ''
+      /* TEXTFOX GENERATED CONFIG */
+      const {classes: Cc, interfaces: Ci} = Components;
+      const {FileUtils} = ChromeUtils.importESModule("resource://gre/modules/FileUtils.sys.mjs")
+      var updated = false;
+
+      // Create nsiFile objects 
+      var chromeDir = Services.dirsvc.get("ProfD", Ci.nsIFile);
+      chromeDir.append("chrome");
+
+      // XP_UNIX forces symlinks to be resolved when copying
+      // so we are just going to normal copy from nix store
+      // <https://bugzilla.mozilla.org/show_bug.cgi?id=480726>
+      var textfoxChrome = new FileUtils.File("${textfoxChrome}");
+      var userChrome = new FileUtils.File("${textfoxChrome}/userChrome.css");
+      var userContent = new FileUtils.File("${textfoxChrome}/userContent.css");
+
+      var hashFile = chromeDir.clone();
+      hashFile.append(textfoxChrome.displayName);
+
+      if (!chromeDir.exists()) {
+          chromeDir.create(Ci.nsIFile.DIRECTORY_TYPE, FileUtils.PERMS_DIRECTORY);
+          userChrome.copyTo(chromeDir, "userChrome.css");
+          userContent.copyTo(chromeDir, "userContent.css");
+          updated = true;
+
+      } else if (!hashFile.exists()) {
+          chromeDir.remove(1);
+          userChrome.copyTo(chromeDir, "userChrome.css");
+          userContent.copyTo(chromeDir, "userContent.css");
+          updated = true;
       }
       ''
         mkdir -p "$out"
