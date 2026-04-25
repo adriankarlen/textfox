@@ -8,11 +8,7 @@ inputs:
 let
   inherit (pkgs.stdenv.hostPlatform) system;
   package = inputs.self.packages.${system}.default;
-  configDir =
-    if pkgs.stdenv.hostPlatform.isDarwin then
-      "Library/Application Support/Firefox/Profiles/"
-    else
-      ".mozilla/firefox/";
+  configDir = "${config.programs.firefox.configPath}/";
 
   cfg = config.textfox;
 in
