@@ -7,7 +7,7 @@
 \__/\___/_/|_|\__/_/  \____/_/|_|  
 ```
 
-_a port of spotify tui to firefox_
+_a firefox theme for the tui enthusiast_
 
 ## Preview
 
@@ -369,6 +369,10 @@ findbar::before {
 
 #### Do you have a banger recipe?
 Feel free to open a PR and add it here!
+
+## Community
+
+Join [#textfox:matrix.org](https://matrix.to/#/#textfox:matrix.org) for support and discussion.
 
 ## Acknowledgements
 
