@@ -34,7 +34,7 @@ Two operations:
 Use the helper — it's sandbox-safe (no pipes, handles encoding, parses JSON):
 
 ```sh
-sh .claude/skills/firefox-chrome/sf-search.sh "QUERY" "PATH_GLOB"
+sh tools/firefox-chrome/sf-search.sh "QUERY" "PATH_GLOB"
 ```
 
 - `QUERY` — a class, id, attribute, or any substring. Supports searchfox syntax.
@@ -46,9 +46,9 @@ the surrounding area for the new name.
 
 Examples:
 ```sh
-sh .claude/skills/firefox-chrome/sf-search.sh "urlbar-background" "*.css"   # who styles it
-sh .claude/skills/firefox-chrome/sf-search.sh "nav-bar" "*.xhtml"           # find the DOM node
-sh .claude/skills/firefox-chrome/sf-search.sh "tab-background-start"        # everywhere
+sh tools/firefox-chrome/sf-search.sh "urlbar-background" "*.css"   # who styles it
+sh tools/firefox-chrome/sf-search.sh "nav-bar" "*.xhtml"           # find the DOM node
+sh tools/firefox-chrome/sf-search.sh "tab-background-start"        # everywhere
 ```
 
 ### 2. Read a full file (see structure / default rules in context)
@@ -114,11 +114,11 @@ need **runtime truth** the source can't give:
 - **verify your own CSS landed** — the profile is seeded with the repo's `chrome/`
 
 ```sh
-sh .claude/skills/firefox-chrome/firefox-live.sh nav-bar
-sh .claude/skills/firefox-chrome/firefox-live.sh --selector "#urlbar .urlbar-background" \
+sh tools/firefox-chrome/firefox-live.sh nav-bar
+sh tools/firefox-chrome/firefox-live.sh --selector "#urlbar .urlbar-background" \
    -- --computed background-color,border,box-shadow
-sh .claude/skills/firefox-chrome/firefox-live.sh back-button -- --html --children
-sh .claude/skills/firefox-chrome/firefox-live.sh --vanilla nav-bar   # bare FF, no textfox
+sh tools/firefox-chrome/firefox-live.sh back-button -- --html --children
+sh tools/firefox-chrome/firefox-live.sh --vanilla nav-bar   # bare FF, no textfox
 ```
 
 It launches a throwaway Firefox (ephemeral profile seeded with `chrome/`,

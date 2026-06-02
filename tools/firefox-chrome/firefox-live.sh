@@ -21,8 +21,8 @@
 set -eu
 
 PORT="${FF_MARIONETTE_PORT:-2828}"
-SKILL_DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO_ROOT="$(cd "$SKILL_DIR/../../.." && pwd)"   # .agents/skills/firefox-chrome -> repo root
+TOOL_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_ROOT="$(cd "$TOOL_DIR/../.." && pwd)"   # tools/firefox-chrome -> repo root
 VENV="$HOME/.cache/textfox-firefox-live/venv"
 SEED=1
 QUERY=""
@@ -103,9 +103,9 @@ FF_PID=$!
 # --- inspect --------------------------------------------------------------
 # "$@" here = passthrough flags after `--` (e.g. --html --children)
 if [ -n "$SELECTOR" ]; then
-  "$VENV/bin/python" "$SKILL_DIR/ff_inspect.py" --port "$PORT" --selector "$SELECTOR" "$@"
+  "$VENV/bin/python" "$TOOL_DIR/ff_inspect.py" --port "$PORT" --selector "$SELECTOR" "$@"
 elif [ -n "$QUERY" ]; then
-  "$VENV/bin/python" "$SKILL_DIR/ff_inspect.py" --port "$PORT" --id "$QUERY" "$@"
+  "$VENV/bin/python" "$TOOL_DIR/ff_inspect.py" --port "$PORT" --id "$QUERY" "$@"
 else
   echo "error: provide an element ID or --selector" >&2
   exit 1

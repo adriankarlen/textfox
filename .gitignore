@@ -1,2 +1,6 @@
 .DS_Store
 chrome/config.css
+
+# Python (firefox-chrome tooling)
+__pycache__/
+*.pyc
