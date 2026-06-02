@@ -370,6 +370,57 @@ findbar::before {
 #### Do you have a banger recipe?
 Feel free to open a PR and add it here!
 
+## Tooling
+
+The repo ships a small toolkit under `tools/firefox-chrome/` (also
+symlinked into `.claude/skills/` so AI agents pick it up automatically). It
+exists to solve the hardest part of maintaining a userChrome theme: Firefox's
+internal UI is real DOM with its own CSS, and the selectors/IDs change between
+versions — the number one cause of theme breakage.
+
+These scripts are plain shell/Python and work on their own, no agent required.
+
+### `sf-search.sh` — find real selectors in the latest Firefox
+
+Searches the latest Firefox release source (via searchfox) so you can confirm a
+selector actually exists before writing CSS against it.
+
+```sh
+# Where is .urlbar-background styled?
+sh tools/firefox-chrome/sf-search.sh "urlbar-background" "*.css"
+
+# Find an element in the browser DOM
+sh tools/firefox-chrome/sf-search.sh "nav-bar" "*.xhtml"
+```
+
+Output is `path:line: matched line`. Zero matches for a selector textfox already
+uses is a strong hint that Firefox renamed or removed it.
+
+### `firefox-live.sh` — inspect the live browser UI
+
+Launches a throwaway Firefox (with textfox applied) and inspects the actual
+rendered chrome DOM, then cleans up after itself. Handy on its own to identify
+an element's real id/classes, its runtime state attributes (`[open]`,
+`[focused]`, …), and the computed styles that won the cascade.
+
+```sh
+# Inspect the nav bar
+sh tools/firefox-chrome/firefox-live.sh nav-bar
+
+# A specific selector + the computed properties you care about
+sh tools/firefox-chrome/firefox-live.sh --selector "#urlbar .urlbar-background" \
+   -- --computed background-color,border,box-shadow
+
+# Bare Firefox, without textfox applied
+sh tools/firefox-chrome/firefox-live.sh --vanilla nav-bar
+```
+
+> [!NOTE]
+> Requires `python3` and a Firefox install. The first run creates a small
+> virtualenv at `~/.cache/textfox-firefox-live/venv` for `marionette_driver`.
+> Live inspection needs a display; on headless Linux prefix the command with
+> `xvfb-run -a`.
+
 ## Community
 
 Join [#textfox:matrix.org](https://matrix.to/#/#textfox:matrix.org) for support and discussion.
