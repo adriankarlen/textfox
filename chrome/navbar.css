@@ -9,7 +9,7 @@
 #translations-button-icon,
 #tracking-protection-icon-container,
 #star-button-box,
-.urlbar-page-action:not([hidden="true"]) {
+.urlbar-page-action:not([hidden]) {
   display: var(--tf-display-urlbar-icons);
 }
 
