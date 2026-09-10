@@ -66,7 +66,7 @@
     content: "tools";
     color: var(--lwt-text-color);
     background-color: var(--tf-bg);
-    margin: 3.25rem .4rem;
+    margin: -1.10rem 0.40rem 2.75rem 0.3rem;
     padding: 0 4px;
   }
   &:hover::before {
