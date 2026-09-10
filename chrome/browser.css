@@ -6,7 +6,8 @@ browser {
   border-radius: var(--tf-rounding);
 }
 
-#tabbrowser-tabbox {
+#tabbrowser-tabbox,
+.split-view-panel {
   margin: 8px !important;
   border: var(--border-width) solid var(--tf-border);
   border-radius: var(--tf-rounding);
@@ -30,7 +31,8 @@ browser {
 }
 
 :root[inFullscreen="true"] {
-  #tabbrowser-tabbox {
+  #tabbrowser-tabbox,
+  .split-view-panel {
     margin: 0 !important;
     border: none;
     padding: 0 !important;
@@ -39,11 +41,53 @@ browser {
       display: none;
     }
   }
+  .split-view-panel {
+    outline: none !important;
+  }
+  split-view-footer {
+    margin: 0;
+  }
 }
 
 #browser:not(.browser-toolbox-background) {
   :root[lwtheme] & {
     background-color: var(--lwt-accent-color) !important;
     background-image: var(--lwt-accent-color) !important;
+  }
+}
+
+.split-view-panel {
+  --splitborder: var(--tf-border);
+  border-color: var(--splitborder);
+  margin: 4px 0 0 !important;
+  transition: border-color var(--tf-border-transition), outline-color var(--tf-border-transition);
+  overflow: visible !important;
+  outline: none;
+  &:hover {
+    --splitborder: var(--tf-accent) !important;
+  }
+  &::before {
+    content: "split" !important;
+    color: var(--lwt-text-color);
+  }
+  &.deck-selected {
+    outline: var(--border-width) solid var(--splitborder) !important;
+    & > .browserContainer {
+      outline: none !important;
+    }
+    &::before {
+      content: "active split" !important;
+    }
+  }
+  .browserContainer {
+    overflow: visible !important;
+  }
+  split-view-footer {
+    border-color: var(--splitborder) !important;
+    border-width: var(--border-width) 0 0 var(--border-width) !important;
+    transition: border-color var(--tf-border-transition);
+    position: absolute;
+    margin-right: -8px;
+    margin-bottom: -8px;
   }
 }
