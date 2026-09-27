@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-#urlbar-background {
+#urlbar-background, .urlbar-background {
   background-color: transparent !important;
   border: unset !important;
   box-shadow: unset !important;

@@ -365,6 +365,11 @@ box#vertical-tabs::before {
 findbar::before {
   margin: -1.75rem .75rem !important;
 }
+
+/* split view panel title */
+.split-view-panel::before {
+  margin: -1.75rem 0rem !important;
+}
 ```
 
 #### Do you have a banger recipe?
