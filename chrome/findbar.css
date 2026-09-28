@@ -5,9 +5,11 @@ findbar {
   border-radius: var(--tf-rounding);
   padding: 8px 0 !important;
   transition: border-color var(--tf-border-transition);
+
   &:hover {
     color: var(--tf-accent);
     border-color: var(--tf-accent) !important;
+
     &::before {
       color: var(--tf-accent);
     }
@@ -21,13 +23,18 @@ findbar {
     margin: -1.75rem .75rem;
     padding: 0 4px;
   }
+
+  &:where([hidden]) {
+    display: none !important;
+  }
 }
+
 
 .findbar-textbox {
   border: var(--border-width) solid var(--tf-border) !important;
   background: var(--tf-bg) !important;
 }
 
-.findbar-container > checkbox {
+.findbar-container>checkbox {
   text-transform: var(--tf-text-transform);
 }
