@@ -84,7 +84,7 @@ in
       border = {
         color = mkOption {
           type = str;
-          default = "var(--panel-border-color, --toolbar-field-background-color)";
+          default = "var(--panel-border-color, var(--toolbar-field-background-color))";
           description = "Border color when not hovered";
         };
         transition = mkOption {
