@@ -22,6 +22,11 @@ _a firefox theme for the tui enthusiast_
 
 ## Installation
 
+> [!WARNING]
+> textfox does not yet support Firefox's new "Nova" UI. Until it does, set
+> `browser.nova.enabled` to `false` in `about:config` (the provided `user.js`
+> and the Nix modules do this for you), then restart Firefox.
+
 ### Installation script
 
 1. Download/clone the repo.
