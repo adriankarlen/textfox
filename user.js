@@ -6,3 +6,6 @@ user_pref("svg.context-properties.content.enabled", true);
 
 // CSS's `:has()` selector 
 user_pref("layout.css.has-selector.enabled", true);
+
+// Disable the new Firefox "Nova" UI (textfox does not support it yet)
+user_pref("browser.nova.enabled", false);

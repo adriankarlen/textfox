@@ -100,6 +100,8 @@ let
     pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
     pref("svg.context-properties.content.enabled", true);
     pref("layout.css.has-selector.enabled", true);
+    // textfox does not support the new Nova UI yet
+    pref("browser.nova.enabled", false);
 
     /* END TEXTFOX AUTOCONFIG */
   '';
