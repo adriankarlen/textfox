@@ -22,4 +22,5 @@
   /* Waterfox */
   --tf-statusbar-margin: 6px 8px 8px; /* margin of the Waterfox status bar */
   --tf-statusbar-padding: 4px; /* padding of the Waterfox status bar */
+  --tf-animation-duration: 150ms; /* duration of tab, urlbar, status and menu animations */
 }

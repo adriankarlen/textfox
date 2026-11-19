@@ -160,6 +160,12 @@ in
           description = "Padding of the Waterfox status bar";
         };
       };
+
+      animation.duration = mkOption {
+        type = str;
+        default = "150ms";
+        description = "Duration of tab, urlbar, status bar and menu animations";
+      };
     };
 
     configCss = mkOption {
@@ -189,6 +195,7 @@ in
           --tf-bookmarks-alignment: ${cfg.bookmarks.alignment};
           --tf-statusbar-margin: ${cfg.statusbar.margin};
           --tf-statusbar-padding: ${cfg.statusbar.padding};
+          --tf-animation-duration: ${cfg.animation.duration};
         }
         ${cfg.extraConfig}
       '';

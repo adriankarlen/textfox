@@ -14,6 +14,7 @@
 @import url("tabs.css");
 @import url("urlbar.css");
 @import url("waterfox.css");
+@import url("animations.css");
 
 /* configurations - DO NOT CHANGE ORDER */
 @import url("defaults.css");

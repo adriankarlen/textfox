@@ -1,0 +1,74 @@
+/*
+ * textfox-waterfox: animações e transições da interface.
+ * A duração vem de --tf-animation-duration (defaults.css). Os movimentos
+ * (abas entrando, menus aparecendo, texto de status) só rodam quando o
+ * sistema não pede menos movimento; as transições de cor valem sempre.
+ * Importado em userChrome.css antes de defaults.css/config.css; os
+ * !important garantem que as transições valham mesmo onde config.css define
+ * outra.
+ */
+
+/* ── Abas: fundo e contorno mudam suavemente (hover e seleção) ─────────── */
+
+.tabbrowser-tab > .tab-stack > .tab-background {
+  transition:
+    background-color var(--tf-animation-duration) ease,
+    border-color var(--tf-border-transition) !important;
+}
+
+/* ── Barra de endereços: contorno e fundo mudam suavemente ao focar ────── */
+
+#urlbar-background,
+.urlbar-background {
+  transition:
+    background-color var(--tf-animation-duration) ease,
+    border-color var(--tf-animation-duration) ease,
+    outline-color var(--tf-animation-duration) ease,
+    box-shadow var(--tf-animation-duration) ease !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* ── Abas: aba nova entra com fade e um leve deslize ─────────────────── */
+
+  /* O Firefox marca a aba com [fadein] logo depois de criá-la. Anima só o
+     conteúdo (.tab-stack): a própria aba usa transform ao ser arrastada. */
+  .tabbrowser-tab[fadein]:not([pinned]) > .tab-stack {
+    animation: tf-tab-in var(--tf-animation-duration) ease-out;
+  }
+
+  @keyframes tf-tab-in {
+    from {
+      opacity: 0;
+      transform: translateX(-8px);
+    }
+  }
+
+  /* ── Barra de status: texto aparece com fade ─────────────────────────── */
+
+  /* O Waterfox move o rótulo do painel de status (#statuspanel) para a barra,
+     mas o painel continua marcando [inactive] quando não há texto. O texto
+     some na hora (o Waterfox o apaga antes de marcar [inactive]), então só a
+     entrada é animada. */
+  #status-text > #statuspanel-label {
+    transition: opacity var(--tf-animation-duration) ease;
+  }
+
+  :root:has(#statuspanel[inactive]) #status-text > #statuspanel-label {
+    opacity: 0;
+  }
+
+  /* ── Menus: fade curto ao abrir ──────────────────────────────────────── */
+
+  /* Painéis com seta e .animatable-menupopup já têm animação própria. Nos
+     demais menus (contexto, menus da barra), o Gecko marca [animate="open"]
+     ao abrir; sem esse atributo, nada muda e o menu abre como antes. */
+  menupopup:not(.animatable-menupopup)[animate="open"] {
+    animation: tf-menu-in var(--tf-animation-duration) ease-out;
+  }
+
+  @keyframes tf-menu-in {
+    from {
+      opacity: 0;
+    }
+  }
+}
