@@ -147,6 +147,19 @@ in
         default = "center";
         description = "Alignment of bookmarks in the bookmarks toolbar (if you have many bookmarks, left is recommended)";
       };
+
+      statusbar = {
+        margin = mkOption {
+          type = str;
+          default = "6px 8px 8px";
+          description = "Margin of the Waterfox status bar";
+        };
+        padding = mkOption {
+          type = str;
+          default = "4px";
+          description = "Padding of the Waterfox status bar";
+        };
+      };
     };
 
     configCss = mkOption {
@@ -174,6 +187,8 @@ in
           --tf-navbar-margin: ${cfg.navbar.margin};
           --tf-navbar-padding: ${cfg.navbar.padding};
           --tf-bookmarks-alignment: ${cfg.bookmarks.alignment};
+          --tf-statusbar-margin: ${cfg.statusbar.margin};
+          --tf-statusbar-padding: ${cfg.statusbar.padding};
         }
         ${cfg.extraConfig}
       '';
