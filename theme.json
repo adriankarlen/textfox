@@ -1,6 +1,11 @@
 {
+  "id": "textfox-waterfox",
+  "name": "textfox (Waterfox)",
+  "description": "textfox adaptado para o Waterfox: barra de status, abas em árvore e configuração pessoal",
+  "version": "1.0.0-waterfox.1",
+  "homepage": "",
   "style": {
-    "chrome": "https://raw.githubusercontent.com/adriankarlen/textfox/main/chrome/userChrome.css",
-    "content": "https://raw.githubusercontent.com/adriankarlen/textfox/main/chrome/userContent.css"
+    "chrome": "chrome/userChrome.css",
+    "content": "chrome/userContent.css"
   }
 }

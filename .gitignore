@@ -1,5 +1,5 @@
 .DS_Store
-chrome/config.css
+# chrome/config.css é versionado nesta edição (configuração pessoal)
 
 # Python (firefox-chrome tooling)
 __pycache__/

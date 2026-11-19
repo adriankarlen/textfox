@@ -13,6 +13,7 @@
 @import url("sidebar.css");
 @import url("tabs.css");
 @import url("urlbar.css");
+@import url("waterfox.css");
 
 /* configurations - DO NOT CHANGE ORDER */
 @import url("defaults.css");

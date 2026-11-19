@@ -1,0 +1,62 @@
+/*
+ * textfox-waterfox: ajustes para elementos que só existem no Waterfox.
+ * Importado em userChrome.css depois dos arquivos do textfox e antes de
+ * defaults.css/config.css, para que config.css continue tendo a última palavra.
+ */
+
+/* ── Barra de status (#status-bar, dentro de #browser-bottombox) ───────── */
+
+/* Waterfox pinta o fundo com --lwt-accent-color; usar o fundo do textfox. */
+#browser-bottombox {
+  background-color: var(--tf-bg) !important;
+}
+
+#status-bar {
+  margin: var(--tf-statusbar-margin) !important;
+  padding: var(--tf-statusbar-padding) !important;
+  border: var(--border-width) solid var(--tf-border) !important;
+  border-radius: var(--tf-rounding);
+  background-color: transparent !important;
+  color: inherit !important;
+  transition: border-color var(--tf-border-transition) !important;
+  &:hover,
+  &:focus-within {
+    border-color: var(--tf-accent) !important;
+  }
+  &::before {
+    display: var(--tf-display-titles);
+    content: "status";
+    background-color: var(--tf-bg);
+    position: absolute;
+    margin: -16px 8px;
+    padding: 0 2px;
+  }
+  &:hover::before {
+    color: var(--tf-accent);
+  }
+}
+
+/* Mesmo comportamento do textfox em tela cheia: sem moldura. */
+:root[inFullscreen="true"] #status-bar {
+  margin: 0 !important;
+  border: none !important;
+  &::before {
+    display: none;
+  }
+}
+
+/* ── Abas em árvore (browser.tabs.verticalTabs.tree.enabled) ───────────── */
+
+/* Seta de expandir/recolher: cor de destaque do textfox ao passar o mouse. */
+#vertical-tabs[tree-tabs-enabled] .tab-tree-disclosure:hover::before {
+  fill: var(--tf-accent);
+  opacity: 1;
+}
+
+/* Botão de "nova aba" com menu (filha, irmã, independente). */
+#vertical-tabs[tree-tabs-enabled] #waterfox-tree-newtab-action-button {
+  border-radius: var(--tf-rounding) !important;
+  &:hover {
+    background-color: var(--tab-hover-background-color) !important;
+  }
+}

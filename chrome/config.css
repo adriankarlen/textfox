@@ -1,0 +1,54 @@
+/*
+ * Configuração pessoal (migrada da instalação original do textfox no Sine).
+ * Carregada por último: sobrescreve defaults.css e os ajustes de waterfox.css.
+ */
+
+:root {
+  --tf-display-window-controls: flex;
+  --tf-display-nav-buttons: flex;
+
+  /* Borda adaptativa: 30% da cor dos ícones sobre o fundo */
+  --tf-border: color-mix(
+    in srgb,
+    var(--tf-bg) 70%,
+    var(--toolbarbutton-icon-fill, currentColor) 30%
+  );
+
+  --tf-accent: var(--toolbarbutton-icon-fill);
+}
+
+/* Barra de endereços com borda adaptativa */
+#urlbar-background,
+.urlbar-background {
+  display: block !important;
+  border: 1px solid var(--tf-border) !important;
+  border-radius: var(--tf-rounding) !important;
+}
+
+/* Destacar barra de endereços ao interagir */
+#urlbar:is(:hover, [focused]) :is(#urlbar-background, .urlbar-background) {
+  border-color: var(--tf-accent) !important;
+}
+
+/* Manter os botões de navegação visíveis */
+#back-button,
+#forward-button {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+/* Botões indisponíveis */
+#back-button[disabled],
+#forward-button[disabled] {
+  opacity: 0.35 !important;
+}
+
+/* Restaurar a borda superior da navbar */
+#navigator-toolbox #nav-bar {
+  border-top: var(--tf-border-width) solid var(--tf-border) !important;
+}
+
+/* Manter o comportamento original ao passar o mouse */
+#navigator-toolbox #nav-bar:is(:hover, :focus) {
+  border-top-color: var(--tf-accent) !important;
+}
