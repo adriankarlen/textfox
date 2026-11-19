@@ -65,6 +65,20 @@
   justify-content: space-evenly !important;
 }
 
+/* ── Barra lateral: animação de expandir/retrair ───────────────────────── */
+
+/* O Waterfox anima a barra lateral por JS: durante a animação
+   ([sidebar-ongoing-animations]) ele trava a área da página na largura antiga
+   e compensa com uma margem negativa em estilo inline. A margem do textfox
+   em #tabbrowser-tabbox é !important e anula essa compensação; ao expandir,
+   a página fica larga demais e espreme a barra lateral, que treme e dá um
+   tranco no fim, quando volta à largura certa. Impedir que a barra lateral
+   encolha durante a animação: a sobra da página sai pela borda da janela,
+   como no comportamento original. */
+:is(#sidebar-container, #sidebar-box)[sidebar-ongoing-animations] {
+  flex-shrink: 0 !important;
+}
+
 /* ── Abas em árvore (browser.tabs.verticalTabs.tree.enabled) ───────────── */
 
 /* Seta de expandir/recolher: cor de destaque do textfox ao passar o mouse. */
