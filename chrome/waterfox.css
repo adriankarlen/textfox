@@ -45,7 +45,7 @@
   }
 }
 
-/* ── Barra lateral retraída: título "tools" ────────────────────────────── */
+/* ── Barra lateral: área "tools" ───────────────────────────────────────── */
 
 /* Com a sidebar retraída, as ferramentas ficam em coluna
    (orientation="vertical") e a margem de 3.25rem do textfox, pensada para a
@@ -56,6 +56,13 @@
 .buttons-wrapper:has(> .tools-and-extensions:not(.overflow-button)[orientation="vertical"])::before {
   margin: -10px 2px !important;
   padding: 0 2px !important;
+}
+
+/* Com a sidebar expandida, as ferramentas ficam em linha e alinhadas à
+   esquerda; ocupar a largura toda da caixa e distribuir os ícones nela. */
+.tools-and-extensions:not(.overflow-button)[orientation="horizontal"] {
+  flex-grow: 1 !important;
+  justify-content: space-evenly !important;
 }
 
 /* ── Abas em árvore (browser.tabs.verticalTabs.tree.enabled) ───────────── */
