@@ -45,6 +45,19 @@
   }
 }
 
+/* ── Barra lateral retraída: título "tools" ────────────────────────────── */
+
+/* Com a sidebar retraída, as ferramentas ficam em coluna
+   (orientation="vertical") e a margem de 3.25rem do textfox, pensada para a
+   sidebar expandida, joga o título para cima dos ícones. Aqui ele volta para
+   a borda superior, com margens menores para caber na largura estreita.
+   .overflow-button fica de fora: esse grupo é sempre "vertical", mesmo com
+   a sidebar expandida. */
+.buttons-wrapper:has(> .tools-and-extensions:not(.overflow-button)[orientation="vertical"])::before {
+  margin: -10px 2px !important;
+  padding: 0 2px !important;
+}
+
 /* ── Abas em árvore (browser.tabs.verticalTabs.tree.enabled) ───────────── */
 
 /* Seta de expandir/recolher: cor de destaque do textfox ao passar o mouse. */
