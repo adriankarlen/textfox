@@ -30,6 +30,19 @@
   border-color: var(--tf-accent) !important;
 }
 
+/* Abas com o mesmo contorno da barra de endereços; destaque na aba
+   selecionada e ao passar o mouse */
+.tabbrowser-tab > .tab-stack > .tab-background {
+  border: 1px solid var(--tf-border) !important;
+  border-radius: var(--tf-rounding) !important;
+  transition: border-color var(--tf-border-transition);
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-background,
+.tab-background:is([selected], [multiselected]) {
+  border-color: var(--tf-accent) !important;
+}
+
 /* Manter os botões de navegação visíveis */
 #back-button,
 #forward-button {
