@@ -14,9 +14,28 @@ _a firefox theme for the tui enthusiast_
 > Waterfox e carregado como mod local do [Sine](https://github.com/CosmoCreeper/Sine).
 >
 > - `chrome/waterfox.css`: estilo textfox para a barra de status do Waterfox
->   (`#status-bar`) e para as abas em árvore (seta e botão de nova aba).
+>   (`#status-bar`), para as abas em árvore (seta e botão de nova aba) e para a
+>   área "tools" da barra lateral (título no lugar com a barra retraída, ícones
+>   distribuídos com ela expandida).
 >   Variáveis novas em `defaults.css`: `--tf-statusbar-margin` e `--tf-statusbar-padding`.
-> - `chrome/config.css`: configuração pessoal, versionada nesta edição.
+> - `chrome/config.css`: configuração pessoal, versionada nesta edição. Inclui
+>   contorno nas abas e as cores dos contornos vindas do tema ativo.
+> - Cores com o [Adaptive Tab Bar Colour](https://addons.mozilla.org/firefox/addon/adaptive-tab-bar-colour/):
+>   a extensão aplica um tema derivado de cada página, e `config.css` usa duas
+>   cores desse tema. Ajuste-as no "Theme builder" da extensão:
+>
+>   | Cor no textfox | Theme builder | Cor do tema |
+>   | --- | --- | --- |
+>   | Contorno normal (`--tf-border`) | URL bar → Border | `toolbar_field_border` |
+>   | Destaque ao passar o mouse, aba selecionada e títulos (`--tf-accent`) | Selected tab → Border | `tab_line` |
+>
+>   Cada valor é somado ao Background do mesmo cartão e clareia a cor da página
+>   (escurece no modo claro). O fundo do textfox vem de Tab bar → Background, então
+>   o contorno só aparece se o seu valor ficar acima desse. Para o destaque se
+>   distinguir, use em Selected tab → Border um valor maior que o de
+>   URL bar → Border.
+>   Sem a extensão, o tema não define `toolbar_field_border` e os contornos ficam
+>   transparentes: remova o bloco `:root[lwtheme]` de `config.css`.
 > - Instalar/atualizar no perfil padrão (depois, reiniciar o Waterfox):
 >
 >   ```powershell
