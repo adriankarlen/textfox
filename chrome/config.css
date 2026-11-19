@@ -82,10 +82,9 @@
   border-top-color: var(--tf-accent) !important;
 }
 
-/* Títulos das áreas (main, tabs, navbar, tools, status...) com o mesmo
-   contorno das abas: cor normal e destaque ao passar o mouse na área.
-   O texto fica sempre na cor dos ícones (branco no escuro, preto no claro),
-   sem mudar para o destaque. */
+/* Títulos das áreas (main, tabs, navbar, tools, status...): o texto fica
+   sempre na cor dos ícones (branco no escuro, preto no claro), sem mudar
+   para o destaque ao passar o mouse na área. */
 :is(
     #tabbrowser-tabbox,
     .split-view-panel,
@@ -99,22 +98,4 @@
     #status-bar
   )::before {
   color: var(--toolbarbutton-icon-fill) !important;
-  border: 1px solid var(--tf-border);
-  border-radius: var(--tf-rounding);
-  transition: border-color var(--tf-border-transition);
-}
-
-:is(
-    #tabbrowser-tabbox,
-    .split-view-panel,
-    findbar,
-    #nav-bar,
-    #PersonalToolbar,
-    #sidebar-box,
-    .buttons-wrapper,
-    box#vertical-tabs,
-    #TabsToolbar,
-    #status-bar
-  ):hover::before {
-  border-color: var(--tf-accent);
 }
